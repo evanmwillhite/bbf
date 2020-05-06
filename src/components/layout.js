@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
+
 import base from './base.css'
+import styles from './home.module.css'
+
 import Container from './container'
 import Navigation from './navigation'
 
@@ -16,7 +19,13 @@ class Template extends React.Component {
 
     return (
       <Container>
-        <Navigation />
+        <header className={styles.header}>
+          <div className={styles.headerWrapper}>
+            <Link className={styles.logo} to="/">Home</Link>
+            <Navigation />
+            <h1 className={styles.heading}>Seeking the Heart of God in Hendersonville</h1>
+          </div>
+        </header>
         {children}
       </Container>
     )

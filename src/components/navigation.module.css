@@ -1,3 +1,7 @@
+.nav {
+  position: relative;
+}
+
 .navigation {
   display: flex;
   justify-content: center;
@@ -16,5 +20,5 @@
 }
 
 .navigationItem a {
-  color: currentColor;
+  color: white;
 }
