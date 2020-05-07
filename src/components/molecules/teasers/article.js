@@ -9,20 +9,22 @@ export default ({ article }) => (
     <div className={styles.image}>
       <Img alt="" fluid={article.heroImage.fluid} />
     </div>
-    <h3 className={styles.previewTitle}>
-      <Link to={`/blog/${article.slug}`}>{article.title}</Link>
-    </h3>
-    <small>{article.publishDate}</small>
-    <div
-      dangerouslySetInnerHTML={{
-        __html: article.description.childMarkdownRemark.html,
-      }}
-    />
-    {article.tags &&
-      article.tags.map(tag => (
-        <p className={styles.tag} key={tag}>
-          {tag}
-        </p>
-      ))}
+    <div className={styles.content}>
+      <h3 className={styles.previewTitle}>
+        <Link to={`/blog/${article.slug}`}>{article.title}</Link>
+      </h3>
+      <small>{article.publishDate}</small>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: article.description.childMarkdownRemark.html,
+        }}
+      />
+      {article.tags &&
+        article.tags.map(tag => (
+          <p className={styles.tag} key={tag}>
+            {tag}
+          </p>
+        ))}
+    </div>
   </div>
 )

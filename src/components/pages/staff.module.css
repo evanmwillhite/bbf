@@ -1,0 +1,11 @@
+.staffList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.staffItem {
+  margin-right: 14%;
+  width: 50%;
+}

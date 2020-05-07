@@ -14,14 +14,32 @@ img {
 
 h1,
 h2,
+h3,
+h4,
+h5 {
+  font: normal 4rem 'Lora', serif;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
 h3 {
-  font-family: 'Lora', serif;
-  font-size: 2em;
-  font-weight: normal;
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.4rem;
 }
 
 a {
   color: currentColor;
+}
+
+blockquote {
+  border-left: 2px solid #eee;
+  font-style: italic;
+  padding-left: 2rem;
 }
 
 .button {
@@ -44,9 +62,17 @@ a {
 }
 
 .wrapper {
-  width: calc(100% - 10vmin);
   margin: 0 auto;
-  padding: 5vmin 0;
+  max-width: 1024px;
+  padding: 3rem 0;
+}
+
+.wrapper--content {
+  max-width: 680px;
+}
+
+.content-wrapper iframe {
+    width: 100%;
 }
 
 /**
@@ -56,9 +82,6 @@ a {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 5vmin;
 }
 
 /**

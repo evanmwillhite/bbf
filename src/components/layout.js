@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 
 import base from './base/base.css'
 import styles from './pages/home.module.css'
@@ -14,7 +15,7 @@ let cx = classNames.bind(styles);
 
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
+    const { location, children, heroImage } = this.props
     let header
     let home
 
@@ -29,24 +30,29 @@ class Template extends React.Component {
 
     let headerClasses = cx({
       header: true,
+      headerImage: !heroImage,
       headerHome: home,
     });
 
     let headerWrapperClasses = cx({
       headerWrapper: true,
+      wrapper: true,
       headerHomeWrapper: home,
-    });
-
-    let logoClasses = cx({
-      logo: true,
-      logoHome: home,
     });
 
     return (
       <Container>
         <header className={headerClasses}>
+          {heroImage &&
+            <div className={styles.heroImage}> 
+              <Img
+                alt=""
+                fluid={heroImage.fluid}
+              />
+            </div>
+          }
           <div className={headerWrapperClasses}>
-            <Link className={logoClasses} to="/">Home</Link>
+            <Link className={styles.logo} to="/">Home</Link>
             <Navigation light={home && true} />
             {home &&
               <h1 className={styles.heading}>Seeking the Heart of God in Hendersonville</h1>

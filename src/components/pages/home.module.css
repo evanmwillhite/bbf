@@ -1,22 +1,37 @@
 .header {
+  overflow: hidden;
   position: relative;
 }
 
-.headerHome {
-  background: url(../../img/bible.jpg) no-repeat scroll 0 0;
+.headerImage {
+  background: url(../../img/bible.jpg) no-repeat scroll 80% 48%;
   background-size: cover;
+}
+
+.heroImage {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.heroImage * {
+  height: 100%;
+  width: 100%;
+}
+
+.headerHome {
+  background-position: 0 0;
 }
 
 .headerWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0 auto;
-  padding: 5vmin 0;
-  width: calc(100% - 10vmin);
 }
 
-.headerHomeWrapper::before {
+.headerWrapper::before {
   background-color: rgba(0,0,0,0.4);
   content: "";
   display: block;
@@ -29,7 +44,7 @@
 
 
 .logo {
-  background-image: url(../../img/logo-color.png);
+  background-image: url(../../img/logo.png);
   background-size: cover;
   display: block;
   height: 0;
@@ -37,10 +52,6 @@
   padding-top: 222px;
   position: relative;
   width: 220px;
-}
-
-.logoHome {
-  background-image: url(../../img/logo.png);
 }
 
 .heading {
@@ -89,6 +100,7 @@
 }
 
 .cardText {
+  font: 1.1rem 'Poppins', sans-serif;
   max-width: 250px;
 }
 
