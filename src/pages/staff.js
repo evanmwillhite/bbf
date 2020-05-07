@@ -47,6 +47,7 @@ export const pageQuery = graphql`
       edges {
         node {
           name
+          slug
           title
           shortBio {
             childMarkdownRemark {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styles from './person.module.css'
@@ -6,10 +7,12 @@ import styles from './person.module.css'
 export default ({ person }) => (
   <div className={styles.personPreview}>
     <div className={styles.image}>
-      <Img alt="" fluid={person.image.fluid} />
+      <Link to={`/staff/${person.slug}`}>
+        <Img alt="" fluid={person.image.fluid} />
+      </Link>
     </div>
     <h2 className={styles.previewTitle}>
-      {person.name}
+    <Link to={`/staff/${person.slug}`}>{person.name}</Link>
     </h2>
     <h3 className={styles.previewSubTitle}>
       {person.title}
