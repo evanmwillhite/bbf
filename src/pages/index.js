@@ -4,11 +4,11 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 
-import styles from '../components/home.module.css'
+import styles from '../components/pages/home.module.css'
 
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
-import SermonPreview from '../components/sermon-preview'
+import ArticlePreview from '../components/molecules/teasers/article'
+import SermonPreview from '../components/molecules/teasers/sermon'
 
 class RootIndex extends React.Component {
   render() {
@@ -51,25 +51,24 @@ class RootIndex extends React.Component {
             <section className={styles.list}>
               <h2 className={styles.listTitle}>Recent sermon</h2>
                 {sermons.map(({ node }) => {
-                  console.log(node.embed.content[0].content[0].value)
                   return (
-                    <article key={node.slug}>
+                    <article className={styles.listItem} key={node.slug}>
                       <SermonPreview article={node} />
                     </article>
                   )
                 })}
-              <Link to="/sermons">All Sermons</Link>
+              <Link className="button button-center" to="/sermons">All Sermons</Link>
             </section>
             <section className={styles.list}>
               <h2 className={styles.listTitle}>Recent blog</h2>
                 {posts.map(({ node }) => {
                   return (
-                    <article key={node.slug}>
+                    <article className={styles.listItem} key={node.slug}>
                       <ArticlePreview article={node} />
                     </article>
                   )
                 })}
-              <Link to="/blog">Read More</Link>
+              <Link className="button button-center" to="/blog">Read More</Link>
             </section>
           </div>
         </div>

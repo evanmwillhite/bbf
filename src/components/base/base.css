@@ -24,6 +24,25 @@ a {
   color: currentColor;
 }
 
+.button {
+  background-color: #c79288;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-center {
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
+}
+
+.button:hover {
+  background-color: #ad837b;
+  text-decoration: underline;
+}
+
 .wrapper {
   width: calc(100% - 10vmin);
   margin: 0 auto;

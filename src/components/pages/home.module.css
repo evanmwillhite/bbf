@@ -3,7 +3,7 @@
 }
 
 .headerHome {
-  background: url(./img/bible.jpg) no-repeat scroll 0 0;
+  background: url(../../img/bible.jpg) no-repeat scroll 0 0;
   background-size: cover;
 }
 
@@ -29,7 +29,7 @@
 
 
 .logo {
-  background-image: url(./img/logo-color.png);
+  background-image: url(../../img/logo-color.png);
   background-size: cover;
   display: block;
   height: 0;
@@ -40,7 +40,7 @@
 }
 
 .logoHome {
-  background-image: url(./img/logo.png);
+  background-image: url(../../img/logo.png);
 }
 
 .heading {
@@ -92,6 +92,16 @@
   max-width: 250px;
 }
 
+/* Recent Single */
+.list {
+  margin-bottom: 5rem;
+}
+
+.listItem {
+  margin-bottom: 4rem;
+}
+
+/* Footer */
 .footer {
   background-color: #3a3734;
   color: #fff;

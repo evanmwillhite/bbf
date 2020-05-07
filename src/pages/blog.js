@@ -2,9 +2,9 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
-import styles from './blog.module.css'
+import styles from '../components/pages/blog.module.css'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import ArticlePreview from '../components/molecules/teasers/article'
 
 class BlogIndex extends React.Component {
   render() {

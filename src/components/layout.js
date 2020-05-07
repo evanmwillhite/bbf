@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import base from './base.css'
-import styles from './home.module.css'
+import base from './base/base.css'
+import styles from './pages/home.module.css'
 
 import Container from './container'
-import Navigation from './navigation'
-import Facebook from './img/facebook.inline.svg';
-import Soundcloud from './img/soundcloud.inline.svg';
+import Navigation from './molecules/nav/navigation'
+import Facebook from '../img/facebook.inline.svg';
+import Soundcloud from '../img/soundcloud.inline.svg';
 
 import classNames from 'classnames/bind';
 let cx = classNames.bind(styles);
