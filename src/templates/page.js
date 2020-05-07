@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 
+import favicon from '../img/favicon.png';
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulPage')
@@ -12,7 +14,10 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} heroImage={post.heroImage}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Helmet title={siteTitle}>
+            <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300&display=swap" rel="stylesheet" />
+            <link rel="icon" href={favicon} type="image/x-icon" />
+          </Helmet>
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <div

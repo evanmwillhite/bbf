@@ -10,6 +10,8 @@ import Layout from '../components/layout'
 import ArticlePreview from '../components/molecules/teasers/article'
 import SermonPreview from '../components/molecules/teasers/sermon'
 
+import favicon from '../img/favicon.png';
+
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -21,12 +23,13 @@ class RootIndex extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle}>
             <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300&display=swap" rel="stylesheet" />
+            <link rel="icon" href={favicon} type="image/x-icon" />
           </Helmet>
-            <section className="wrapper">
-              <p>Sorry, the page you are looking for is not found.</p>
-              <br></br>
-              <Link className="button" to="/">Return to the Homepage</Link>
-            </section>
+          <section className="wrapper">
+            <p>Sorry, the page you are looking for is not found.</p>
+            <br></br>
+            <Link className="button" to="/">Return to the Homepage</Link>
+          </section>
         </div>
       </Layout>
     )

@@ -5,6 +5,8 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
+import favicon from '../img/favicon.png';
+
 import styles from '../components/pages/person.module.css';
 
 class BlogPostTemplate extends React.Component {
@@ -15,7 +17,10 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={`${person.name} | ${siteTitle}`} />
+          <Helmet title={siteTitle}>
+            <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300&display=swap" rel="stylesheet" />
+            <link rel="icon" href={favicon} type="image/x-icon" />
+          </Helmet>
           <div className={styles.person + " wrapper"}>
             <h1 className="section-headline">{person.name}</h1>
             <div className={styles.personImage}>

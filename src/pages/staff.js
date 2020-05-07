@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import PersonPreview from '../components/molecules/teasers/person'
 
+import favicon from '../img/favicon.png';
+
 import styles from '../components/pages/staff.module.css'
 
 class SermonsIndex extends React.Component {
@@ -15,7 +17,10 @@ class SermonsIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle} />
+          <Helmet title={siteTitle}>
+            <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300&display=swap" rel="stylesheet" />
+            <link rel="icon" href={favicon} type="image/x-icon" />
+          </Helmet>
           <div className="wrapper">
             <h1>Staff</h1>
             <ul className={styles.staffList}>

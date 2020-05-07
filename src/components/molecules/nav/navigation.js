@@ -24,6 +24,17 @@ export default ({ light }) => {
         </li>
         <li className={styles.navigationItem}>
           <Link className={navLinkClasses} to="/about/">About</Link>
+          <ul className={styles.subNav}>
+            <li>
+              <Link className={navLinkClasses} to="/ministries/">Ministries</Link>
+            </li>
+            <li>
+              <Link className={navLinkClasses} to="/history/">History</Link>
+            </li>
+            <li>
+              <Link className={navLinkClasses} to="/staff/">Staff</Link>
+            </li>
+          </ul>
         </li>
         <li className={styles.navigationItem}>
           <Link className={navLinkClasses} to="/inspiration/">Inspiration</Link>
