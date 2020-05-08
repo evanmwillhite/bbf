@@ -6,15 +6,10 @@ import styles from './sermon.module.css'
 export default ({ article }) => (
   <div className={styles.sermonPreview}>
     <div className={styles.sermonLeft}>
-    <h3 className={styles.previewTitle}>
-      <Link to={`/blog/${article.slug}`}>{article.title}</Link>
-    </h3>
-    <small>{article.publishDate}</small>
-    <div
-      dangerouslySetInnerHTML={{
-        __html: article.description.childMarkdownRemark.html,
-      }}
-    />
+      <h3 className={styles.previewTitle}>
+        <Link to={`/sermons/${article.slug}`}>{article.title}</Link>
+      </h3>
+      <small>{article.publishDate}</small>
     </div>
     <div
       className={styles.audio}

@@ -2,15 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
 
 import styles from '../components/pages/home.module.css'
 
+import Head from '../components/base/head/head'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/molecules/teasers/article'
 import SermonPreview from '../components/molecules/teasers/sermon'
-
-import favicon from '../img/favicon.png';
 
 class RootIndex extends React.Component {
   render() {
@@ -21,10 +19,7 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle}>
-            <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300&display=swap" rel="stylesheet" />
-            <link rel="icon" href={favicon} type="image/x-icon" />
-          </Helmet>
+          <Head siteTitle={siteTitle} />
           <div className={styles.quoteWrap}>
             <div className="wrapper">
               <blockquote className={styles.quote}>
@@ -38,17 +33,17 @@ class RootIndex extends React.Component {
               <article className={styles.card}>
                 <h3 className={styles.cardTitle}>Visit</h3>
                 <h4 className={styles.cardText}>Join us for study, worship or potluck.</h4>
-                <a className={styles.cardLink} href="">Read More</a>
+                <Link className={styles.cardLink} to="/visit">Read More</Link>
               </article>
               <article className={styles.card}>
                 <h3 className={styles.cardTitle}>About</h3>
                 <h4 className={styles.cardText}>Learn about our ministries, history and staff.</h4>
-                <a className={styles.cardLink} href="">Read More</a>
+                <Link className={styles.cardLink} to="/about">Read More</Link>
               </article>
               <article className={styles.card}>
                 <h3 className={styles.cardTitle}>Inspiration</h3>
                 <h4 className={styles.cardText}>Sermon audio and pastors’ blog.</h4>
-                <a className={styles.cardLink} href="">Read More</a>
+                <Link className={styles.cardLink} to="/inspiration">Read More</Link>
               </article>
             </section>
             <section className={styles.list}>
