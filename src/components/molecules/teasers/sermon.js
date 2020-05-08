@@ -3,18 +3,21 @@ import { Link } from 'gatsby'
 
 import styles from './sermon.module.css'
 
-export default ({ article }) => (
+export default ({ sermon }) => (
   <div className={styles.sermonPreview}>
     <div className={styles.sermonLeft}>
       <h3 className={styles.previewTitle}>
-        <Link to={`/sermons/${article.slug}`}>{article.title}</Link>
+        <Link to={`/sermons/${sermon.slug}`}>{sermon.title}</Link>
       </h3>
-      <small>{article.publishDate}</small>
+      <small>{sermon.publishDate}</small>
+      <h4 className={styles.scripture}>
+        <a target="_blank" href={sermon.scriptureLink}>{sermon.scripture}</a>
+      </h4>
     </div>
     <div
       className={styles.audio}
       dangerouslySetInnerHTML={{
-        __html: article.embed.content[0].content[0].value,
+        __html: sermon.embed.content[0].content[0].value,
       }}
     />
   </div>

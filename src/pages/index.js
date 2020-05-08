@@ -51,7 +51,7 @@ class RootIndex extends React.Component {
                 {sermons.map(({ node }) => {
                   return (
                     <article className={styles.listItem} key={node.slug}>
-                      <SermonPreview article={node} />
+                      <SermonPreview sermon={node} />
                     </article>
                   )
                 })}

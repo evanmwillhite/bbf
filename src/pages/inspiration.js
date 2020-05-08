@@ -26,7 +26,7 @@ class SermonsIndex extends React.Component {
                 {sermons.map(({ node }) => {
                   return (
                     <li key={node.slug}>
-                      <SermonPreview article={node} />
+                      <SermonPreview sermon={node} />
                     </li>
                   )
                 })}
@@ -73,6 +73,8 @@ export const pageQuery = graphql`
               html
             }
           }
+          scripture
+          scriptureLink
           embed {
             content {
               content {

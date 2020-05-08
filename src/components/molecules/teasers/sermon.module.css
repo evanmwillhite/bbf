@@ -17,3 +17,15 @@
   margin-bottom: 0.15rem;
   margin-top: 0;
 }
+
+.scripture {
+  font-size: 1.1rem;
+}
+
+.scripture a {
+  text-decoration: none;
+}
+
+.scripture a:hover {
+  text-decoration: underline;
+}

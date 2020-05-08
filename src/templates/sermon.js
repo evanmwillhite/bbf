@@ -15,18 +15,18 @@ class SermonPostTemplate extends React.Component {
           <Head siteTitle={siteTitle} />
           <div className="wrapper">
             <h1 className="section-headline">{sermon.title}</h1>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: sermon.embed.content[0].content[0].value,
-              }}
-            />
             <p
               style={{
                 display: 'block',
               }}
             >
-              {sermon.publishDate}
+              {sermon.publishDate} | <a target="_blank" href={sermon.scriptureLink}>{sermon.scripture}</a>{sermon.pdf && ` | ${<a target="_blank" href={sermon.pdf}>PDF</a>}`}
             </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: sermon.embed.content[0].content[0].value,
+              }}
+            />
             <div
               dangerouslySetInnerHTML={{
                 __html: sermon.description.childMarkdownRemark.html,
@@ -56,6 +56,8 @@ export const pageQuery = graphql`
           html
         }
       }
+      scripture
+      scriptureLink
       embed {
         content {
           content {
