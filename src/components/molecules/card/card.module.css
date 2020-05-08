@@ -1,0 +1,10 @@
+/* Card */
+.card {
+  margin-right: 2%;
+  width: 33%;
+}
+
+.cardText {
+  font: 1.1rem 'Poppins', sans-serif;
+  max-width: 250px;
+}
