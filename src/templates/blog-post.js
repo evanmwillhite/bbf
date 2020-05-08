@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import Head from '../components/base/head/head'
@@ -27,6 +27,8 @@ class BlogPostTemplate extends React.Component {
                 __html: post.body.childMarkdownRemark.html,
               }}
             />
+            <br />
+            <Link className="button" to="/blog">Back to Blog</Link>
           </div>
         </div>
       </Layout>

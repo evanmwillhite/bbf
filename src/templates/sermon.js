@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import Head from '../components/base/head/head'
@@ -32,6 +32,8 @@ class SermonPostTemplate extends React.Component {
                 __html: sermon.description.childMarkdownRemark.html,
               }}
             />
+            <br />
+            <Link className="button" to="/sermons">Back to All Sermons</Link>
           </div>
         </div>
       </Layout>
