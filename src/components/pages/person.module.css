@@ -1,0 +1,9 @@
+.person {
+  overflow: hidden;
+}
+
+.personImage {
+  float: left;
+  margin-right: 2rem;
+  width: 40%;
+}

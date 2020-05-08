@@ -4,27 +4,32 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import Head from '../components/base/head/head'
 
-class BlogPostTemplate extends React.Component {
+class SermonPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
+    const sermon = get(this.props, 'data.contentfulSermon')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <Layout location={this.props.location} heroImage={post.heroImage}>
+      <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Head siteTitle={siteTitle} />
           <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
+            <h1 className="section-headline">{sermon.title}</h1>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: sermon.embed.content[0].content[0].value,
+              }}
+            />
             <p
               style={{
                 display: 'block',
               }}
             >
-              {post.publishDate}
+              {sermon.publishDate}
             </p>
             <div
               dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
+                __html: sermon.description.childMarkdownRemark.html,
               }}
             />
           </div>
@@ -34,26 +39,28 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default SermonPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query SermonBySlug($slug: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    contentfulBlogPost(slug: { eq: $slug }) {
+    contentfulSermon(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-      body {
+      description {
         childMarkdownRemark {
           html
+        }
+      }
+      embed {
+        content {
+          content {
+            value
+          }
         }
       }
     }

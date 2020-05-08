@@ -2,25 +2,25 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/molecules/teasers/article'
+import SermonPreview from '../components/molecules/teasers/sermon'
 import Head from '../components/base/head/head'
 
-class BlogIndex extends React.Component {
+class SermonsIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const sermons = get(this, 'props.data.allContentfulSermon.edges')
 
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Head siteTitle={siteTitle} />
           <div className="wrapper">
-            <h1>Blog</h1>
+            <h1>Sermons</h1>
             <ul className="article-list">
-              {posts.map(({ node }) => {
+              {sermons.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <ArticlePreview article={node} />
+                    <SermonPreview article={node} />
                   </li>
                 )
               })}
@@ -32,30 +32,31 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default SermonsIndex
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
+  query SermonIndexQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulSermon(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
           title
           slug
           publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
           description {
             childMarkdownRemark {
               html
+            }
+          }
+          embed {
+            content {
+              content {
+                value
+              }
             }
           }
         }
