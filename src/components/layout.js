@@ -15,8 +15,8 @@ class Template extends React.Component {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    
     const lastPath = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
-    console.log(lastPath)
     const noDashPath = lastPath.split('-').join(' ')
     let pageTitle = capitalize(noDashPath.split('/').join(''));
 
