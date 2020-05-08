@@ -1,9 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
-import Head from '../components/base/head/head'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/molecules/teasers/article'
 import SermonPreview from '../components/molecules/teasers/sermon'
@@ -19,9 +17,8 @@ class RootIndex extends React.Component {
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={siteTitle}>
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <Quote
             text="The home we long for and belong to is finally where Christ is. I believe that home is Christ's kingdom, which exists both within us and among us as we wend our prodigal ways through the world in search of it."
             cite="—Frederick Buechner"

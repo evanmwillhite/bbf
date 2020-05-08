@@ -1,12 +1,10 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import SermonPreview from '../components/molecules/teasers/sermon'
 import ArticlePreview from '../components/molecules/teasers/article'
-import Head from '../components/base/head/head'
-
-import styles from '../components/pages/inspiration.module.css'
+import TeaserList from '../components/organisms/teaserList/teaserList'
 
 class SermonsIndex extends React.Component {
   render() {
@@ -15,37 +13,32 @@ class SermonsIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={siteTitle}>
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <div className="wrapper">
             <h1>Inspiration</h1>
-            <div className={styles.group}>
-              <h2>Recent Sermons</h2>
-              <ul className={styles.groupList + ' article-list'}>
-                {sermons.map(({ node }) => {
-                  return (
-                    <li key={node.slug}>
-                      <SermonPreview sermon={node} />
-                    </li>
-                  )
-                })}
-              </ul>
-              <Link className="button button-center" to="/sermons">All Sermons</Link>
-            </div>
-            <div className={styles.group}>
-              <h2>Recent Blog</h2>
-              <ul className={styles.groupList + ' article-list'}>
-                {posts.map(({ node }) => {
-                  return (
-                    <li key={node.slug}>
-                      <ArticlePreview article={node} />
-                    </li>
-                  )
-                })}
-              </ul>
-              <Link className="button button-center" to="/blog">All Posts</Link>
-            </div>
+            <TeaserList
+              title="Recent Sermons"
+              link="/sermons"
+              linkText="All Sermons"
+            >
+              {sermons.map(({ node }) => {
+                return (
+                  <SermonPreview sermon={node} />
+                )
+              })}
+            </TeaserList>
+            <TeaserList
+              title="Recent Blog"
+              link="/blog"
+              linkText="All Posts"
+            >
+              {posts.map(({ node }) => {
+                return (
+                  <ArticlePreview article={node} />
+                )
+              })}
+            </TeaserList>
           </div>
         </div>
       </Layout>

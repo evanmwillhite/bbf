@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-import Head from '../components/base/head/head'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -10,9 +9,8 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <Layout location={this.props.location} heroImage={post.heroImage}>
+      <Layout location={this.props.location} heroImage={post.heroImage} title={siteTitle}>
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <div

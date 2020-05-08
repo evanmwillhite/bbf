@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import SermonPreview from '../components/molecules/teasers/sermon'
-import Head from '../components/base/head/head'
 
 class SermonsIndex extends React.Component {
   render() {
@@ -11,12 +10,11 @@ class SermonsIndex extends React.Component {
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={siteTitle}>
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <div className="wrapper">
             <h1>Sermons</h1>
-            <ul className="article-list">
+            <ul className="list-reset">
               {sermons.map(({ node }) => {
                 return (
                   <li key={node.slug}>

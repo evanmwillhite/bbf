@@ -76,32 +76,19 @@ blockquote {
 }
 
 /**
- * article grid
+ * lists
  */
-.article-list {
+.list-reset {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 /**
- *
+ * Common Headline
  */
 .section-headline {
   padding: 0 0 0.4em 0;
   margin: 0 0 5vmin 0;
   border-bottom: 1px solid #ddd;
-}
-
-/**
- *
- */
-.list-inline {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.list-inline li {
-  display: inline-block;
 }

@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
-import Head from '../components/base/head/head'
 
 import styles from '../components/pages/person.module.css';
 
@@ -13,9 +12,8 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={siteTitle}>
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <div className={styles.person + " wrapper"}>
             <h1 className="section-headline">{person.name}</h1>
             <div className={styles.personImage}>

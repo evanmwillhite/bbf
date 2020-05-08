@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import PersonPreview from '../components/molecules/teasers/person'
-import Head from '../components/base/head/head'
 
 import styles from '../components/pages/staff.module.css'
 
@@ -13,9 +12,8 @@ class SermonsIndex extends React.Component {
     const persons = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={siteTitle}>
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <div className="wrapper">
             <h1>Staff</h1>
             <ul className={styles.staffList}>

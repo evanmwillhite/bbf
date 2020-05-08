@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/molecules/teasers/article'
-import Head from '../components/base/head/head'
 
 class BlogIndex extends React.Component {
   render() {
@@ -11,12 +10,11 @@ class BlogIndex extends React.Component {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} title={siteTitle}>
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <div className="wrapper">
             <h1>Blog</h1>
-            <ul className="article-list">
+            <ul className="list-reset">
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
