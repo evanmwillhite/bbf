@@ -26,14 +26,14 @@
 }
 
 .headerWrapper {
-  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 @media only screen and (min-width: 600px) {
   .headerWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     padding-top: 3rem;
   }
 }

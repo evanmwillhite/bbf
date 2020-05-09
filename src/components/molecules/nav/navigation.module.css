@@ -6,15 +6,31 @@
   display: none;
 }
 
-.mainNav--open {
-  background-color: black;
+.mainNavOpen {
+  background-color: rgba(0,0,0,0.9);
   display: block;
+  height: 100%;
   left: 0;
   overflow-y: scroll;
-  position: absolute;
-  top: 134px;
+  padding: 10%;
+  position: fixed;
+  top: 0;
   right: 0;
-  width: 100%;
+  width: 80%;
+  z-index: 100;
+}
+
+/* Icon to close mobile nav when it is open */
+.mobileNavClose {
+  display: block;
+  cursor: pointer;
+  float: right;
+}
+
+@media only screen and (min-width: 600px) {
+  .mobileNavClose {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -24,9 +40,6 @@
 }
 
 .navigation {
-  border-bottom: 1px solid;
-  display: flex;
-  justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -38,12 +51,13 @@
 @media only screen and (min-width: 600px) {
   .navigation {
     border-bottom: none;
+    display: flex;
+    justify-content: center;
   }
 }
 
 /* LI */
 .navigationItem {
-  border-top: 1px solid;
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -60,7 +74,7 @@
 }
 
 /* Expand Button */
-.expand-sub {
+.expandSub {
   background-color: clr(accent-high);
   cursor: pointer;
   display: block;
@@ -70,35 +84,26 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .expand-sub {
+  .expandSub {
     display: none;
   }
 }
 
-.expand-sub::after {
-  border: 15px solid;
-  border-bottom-color: transparent;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  content: '';
-  display: block;
-  margin-right: -12px;
-  margin-top: -6px;
-  position: absolute;
-  right: 50%;
-  top: 50%;
-  width: 0;
-}
-
-.expand-sub--open {
+.expandSubOpen {
   background-color: #222;
   color: #eee;
 }
 
-.expand-sub--open::after {
-  border-top-color: transparent;
-  border-bottom: 15px solid;
-  margin-top: -20px;
+.expandSub svg {
+  height: 25px;
+  left: 10px;
+  position: relative;
+  top: 14px;
+  width: 25px;
+}
+
+.expandSubOpen svg {
+  transform: rotate(90deg);
 }
 
 /*
@@ -116,14 +121,16 @@
   }
 } */
 
-
-.navigationItem:hover .subNav {
-  display: block;
+@media only screen and (min-width: 600px) {
+  .navigationItem:hover .subNav {
+    display: block;
+  }
 }
 
 .navlink {
   color: white;
   font: 1.35rem 'Lora', serif;
+  margin: 0.75rem 0;
   text-decoration: none;
 }
 
@@ -131,18 +138,31 @@
   text-decoration: underline;
 }
 
-
 .subNav {
-  bottom: -71px;
   display: none;
-  left: 0;
   list-style: none;
-  padding: 0;
-  position: absolute;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+.subNavOpen {
+  display: block;
+}
+
+@media only screen and (min-width: 600px) {
+  .subNav {
+    bottom: -71px;
+    display: none;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: auto;
+  }
 }
 
 /* Toggle */
-.toggleExpand {
+.toggle {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -152,47 +172,48 @@
   width: 100%;
 }
 
-.toggleExpand--open {
+.toggleisOpen {
   background-color: #ccc;
 }
 
 @media only screen and (min-width: 600px) {
-  .toggleExpand {
+  .toggle {
     display: none;
   }
 }
 
-.toggleExpand__text {
+.toggleText {
+  color: white;
   display: block;
   font-size: 0.9rem;
   font-weight: bold;
 }
 
-.toggleExpand__text--open {
+.toggleTextOpen {
   color: black;
 }
 
 /* SVG icon */
-.toggleExpand__icon {
+.toggle svg {
   height: 3rem;
   width: 3rem;
   margin: 0 auto;
 }
 
-.toggleExpand__open {
+.toggleOpen {
   display: inline-block;
   text-align: center;
 }
 
-.toggleExpand__close {
+.toggleClose {
   display: none;
   text-align: center;
 }
 
-.toggleExpand__open.closed {
+.toggleOpen.closed {
   display: none;
 }
 
-.toggleExpand__close.open {
+.toggleClose.open {
   display: inline-block;
 }

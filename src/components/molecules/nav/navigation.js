@@ -5,18 +5,26 @@ import styles from './navigation.module.css'
 
 import Menu from '../../../img/menu.inline.svg';
 import Close from '../../../img/close.inline.svg';
+import Down from '../../../img/down.inline.svg';
 
 import classNames from 'classnames/bind';
 let cx = classNames.bind(styles);
 
 export default class Nav extends Component {
-  state = { revealed: false };
+  state = {
+    revealed: false,
+    nextShown: false
+  };
 
   reveal = e => {
     e.preventDefault();
     this.setState(prevState => ({
       revealed: !prevState.revealed
     }));
+  };
+
+  showNext = e => {
+    e.currentTarget.nextElementSibling.classList.toggle(cx('subNavOpen'));
   };
 
   render() {
@@ -27,26 +35,36 @@ export default class Nav extends Component {
     });
 
     const toggleOpenClasses = cx({
-      toggleExpand__open: true,
+      toggleOpen: true,
       closed: this.state.revealed === true
     });
 
     const toggleCloseClasses = cx({
-      toggleExpand__close: true,
+      toggleClose: true,
       open: this.state.revealed === true
+    });
+
+    const mainNavClasses = cx({
+      mainNav: true,
+      mainNavOpen: this.state.revealed === true
     });
 
     return (
       <nav role="navigation" className={styles.nav}>
-        <button id="toggle-expand" class={styles.toggleExpand}>
-          <span class={toggleOpenClasses}>
+        <button className={styles.toggle}>
+          <span className={toggleOpenClasses}>
             <Menu onClick={this.reveal} />
+            <div className={styles.toggleText}>Menu</div>
           </span>
-          <span class={toggleCloseClasses}>
+          <span className={toggleCloseClasses}>
             <Close onClick={this.reveal} />
+            <div className={styles.toggleText}>Close</div>
           </span>
         </button>
-        <div id="main-nav" class={styles.mainNav}>
+        <div className={mainNavClasses}>
+          <span className={styles.mobileNavClose}>
+            <Close onClick={this.reveal} />
+          </span>
           <ul className={styles.navigation}>
             {!light && 
               <li className={styles.navigationItem}>
@@ -58,6 +76,9 @@ export default class Nav extends Component {
             </li>
             <li className={styles.navigationItem}>
               <Link className={navLinkClasses} to="/about/">About</Link>
+              <span className={styles.expandSub} onClick={((e) => this.showNext(e))}>
+                <Down />
+              </span>
               <ul className={styles.subNav}>
                 <li>
                   <Link className={navLinkClasses} to="/ministries/">Ministries</Link>
