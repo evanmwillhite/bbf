@@ -25,11 +25,17 @@
   display: block;
   cursor: pointer;
   float: right;
+  position: relative;
+  top: -40px;
+  right: -13px;
 }
 
 .mobileNavClose svg {
-  height: 30px;
-  width: 30px;
+  height: 45px;
+  left: -3px;
+  position: relative;
+  top: 10px;
+  width: 45px;
 }
 
 @media only screen and (min-width: 700px) {

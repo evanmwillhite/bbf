@@ -56,14 +56,11 @@ export default class Nav extends Component {
             <Menu onClick={this.reveal} />
             <div className={styles.toggleText}>Menu</div>
           </span>
-          <span className={toggleCloseClasses}>
-            <Close onClick={this.reveal} />
-            <div className={styles.toggleText}>Close</div>
-          </span>
         </button>
         <div className={mainNavClasses}>
           <span className={styles.mobileNavClose}>
             <Close onClick={this.reveal} />
+            <div className={styles.toggleText}>Close</div>
           </span>
           <ul className={styles.navigation}>
             {!light && 
