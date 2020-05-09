@@ -143,6 +143,9 @@
 
 /* Toggle */
 .toggleExpand {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   display: inline-block;
   padding: 1rem;
   text-decoration: none;
@@ -186,18 +189,10 @@
   text-align: center;
 }
 
-.toggleExpand__close::before {
-  color: black;
-  content: 'X';
-  display: block;
-  font-size: 2.5rem;
-  line-height: 2;
-}
-
-.toggleExpand--open .toggleExpand__open {
+.toggleExpand__open.closed {
   display: none;
 }
 
-.toggleExpand--open .toggleExpand__close {
+.toggleExpand__close.open {
   display: inline-block;
 }
