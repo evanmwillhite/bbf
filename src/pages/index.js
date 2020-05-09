@@ -27,12 +27,12 @@ class RootIndex extends React.Component {
           <div className="wrapper">
             <CardGrid>
               <Card
-                title="Visit"
+                title="Visit Us"
                 text="Join us for study, worship or potluck."
                 link="/visit"
               />
               <Card
-                title="About"
+                title="About BBF"
                 text="Learn about our ministries, history and staff."
                 link="/about"
               />

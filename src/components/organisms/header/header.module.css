@@ -26,9 +26,16 @@
 }
 
 .headerWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .headerWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 3rem;
+  }
 }
 
 .headerWrapper::before {
@@ -48,17 +55,31 @@
   display: block;
   height: 0;
   overflow: hidden;
-  padding-top: 222px;
+  padding-top: 193px;
   position: relative;
-  width: 220px;
+  width: 190px;
+}
+
+@media only screen and (min-width: 600px) {
+  .logo {
+    padding-top: 222px;
+    width: 220px;
+  }
 }
 
 .heading {
   color: white;
-  font-size: 3.5rem;
+  font-size: 2rem;
   line-height: 1.2;
-  margin: 11rem 0 4rem 25%;
+  margin: 2rem 0 2rem 0;
   max-width: 675px;
   position: relative;
   width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .heading {
+    font-size: 3.5rem;
+    margin: 11rem 0 4rem 25%;
+  }
 }

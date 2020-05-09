@@ -2,7 +2,29 @@
   position: relative;
 }
 
+.mainNav {
+  display: none;
+}
+
+.mainNav--open {
+  background-color: black;
+  display: block;
+  left: 0;
+  overflow-y: scroll;
+  position: absolute;
+  top: 134px;
+  right: 0;
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .mainNav {
+    display: block;
+  }
+}
+
 .navigation {
+  border-bottom: 1px solid;
   display: flex;
   justify-content: center;
   list-style: none;
@@ -13,12 +35,87 @@
   font-size: 1.25rem;
 }
 
+@media only screen and (min-width: 600px) {
+  .navigation {
+    border-bottom: none;
+  }
+}
+
+/* LI */
 .navigationItem {
-  display: inline-flex;
-  align-items: center;
-  margin: 0 1em;
+  border-top: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
 }
+
+@media only screen and (min-width: 600px) {
+  .navigationItem {
+    border-top: none;
+    display: inline-flex;
+    align-items: center;
+    margin: 0 1em;
+    position: relative;
+  }
+}
+
+/* Expand Button */
+.expand-sub {
+  background-color: clr(accent-high);
+  cursor: pointer;
+  display: block;
+  width: 20%;
+  color: white;
+  position: relative;
+}
+
+@media only screen and (min-width: 600px) {
+  .expand-sub {
+    display: none;
+  }
+}
+
+.expand-sub::after {
+  border: 15px solid;
+  border-bottom-color: transparent;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  content: '';
+  display: block;
+  margin-right: -12px;
+  margin-top: -6px;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 0;
+}
+
+.expand-sub--open {
+  background-color: #222;
+  color: #eee;
+}
+
+.expand-sub--open::after {
+  border-top-color: transparent;
+  border-bottom: 15px solid;
+  margin-top: -20px;
+}
+
+/*
+ * Sub Navigation
+ */
+
+/* LI (Nested) */
+/* .main-menu__item--sub {
+  @include medium {
+    display: block;
+
+    &:not(:first-child) {
+      border-top: 1px solid clr(highlight);
+    }
+  }
+} */
+
 
 .navigationItem:hover .subNav {
   display: block;
@@ -42,4 +139,65 @@
   list-style: none;
   padding: 0;
   position: absolute;
+}
+
+/* Toggle */
+.toggleExpand {
+  display: inline-block;
+  padding: 1rem;
+  text-decoration: none;
+  width: 100%;
+}
+
+.toggleExpand--open {
+  background-color: #ccc;
+}
+
+@media only screen and (min-width: 600px) {
+  .toggleExpand {
+    display: none;
+  }
+}
+
+.toggleExpand__text {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.toggleExpand__text--open {
+  color: black;
+}
+
+/* SVG icon */
+.toggleExpand__icon {
+  height: 3rem;
+  width: 3rem;
+  margin: 0 auto;
+}
+
+.toggleExpand__open {
+  display: inline-block;
+  text-align: center;
+}
+
+.toggleExpand__close {
+  display: none;
+  text-align: center;
+}
+
+.toggleExpand__close::before {
+  color: black;
+  content: 'X';
+  display: block;
+  font-size: 2.5rem;
+  line-height: 2;
+}
+
+.toggleExpand--open .toggleExpand__open {
+  display: none;
+}
+
+.toggleExpand--open .toggleExpand__close {
+  display: inline-block;
 }
