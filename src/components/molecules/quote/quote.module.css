@@ -2,16 +2,28 @@
 .quoteWrap {
   background-color: #c79288;
   color: #fff;
-  padding: 1.25rem 0;
+}
+
+@media only screen and (min-width: 700px) {
+  .quoteWrap {
+    padding: 1.25rem 2rem;
+  }
 }
 
 .quote {
-  border-left: 2px solid #eee;
+  border: none;
   font: italic 1.3rem 'Lora', serif;
   line-height: 1.6;
   max-width: 780px;
   margin: 0 auto;
-  padding-left: 2rem;
+  padding-left: 0;
+}
+
+@media only screen and (min-width: 700px) {
+  .quote {
+    border-left: 2px solid #eee;
+    padding-left: 2rem;
+  }
 }
 
 .quoteText {

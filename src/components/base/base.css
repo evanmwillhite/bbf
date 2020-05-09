@@ -17,19 +17,59 @@ h2,
 h3,
 h4,
 h5 {
-  font: normal 4rem 'Lora', serif;
+  font: normal 3rem 'Lora', serif;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 1.9rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 h4 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+}
+
+@media only screen and (min-width: 700px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font: normal 3.5rem 'Lora', serif;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 1024) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font: normal 4rem 'Lora', serif;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
 }
 
 a {
@@ -39,12 +79,20 @@ a {
 blockquote {
   border-left: 2px solid #eee;
   font-style: italic;
-  padding-left: 2rem;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+@media only screen and (min-width: 700px) {
+  blockquote {
+    padding-left: 2rem;
+  }
 }
 
 .button {
   background-color: #c79288;
   color: #fff;
+  display: inline-block;
   padding: 1rem 1.5rem;
   text-align: center;
   text-decoration: none;
@@ -64,10 +112,18 @@ blockquote {
 .wrapper {
   margin: 0 auto;
   max-width: 1024px;
-  padding: 3rem 4rem;
+  padding: 2rem 1.5rem;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
+  .wrapper {
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: 3rem 2rem;
+  }
+}
+
+@media only screen and (min-width: 1024) {
   .wrapper {
     margin: 0 auto;
     max-width: 1024px;

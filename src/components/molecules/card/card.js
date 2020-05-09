@@ -5,8 +5,8 @@ import styles from './card.module.css'
 
 export default ({ title, text, link }) => (
   <article className={styles.card}>
-    <h3 className={styles.cardTitle}>{title}</h3>
-    <h4 className={styles.cardText}>{text}</h4>
+    <h2 className={styles.cardTitle}>{title}</h2>
+    <h3 className={styles.cardText}>{text}</h3>
     <Link className={styles.cardLink} to={link}>Read More</Link>
   </article>
 )

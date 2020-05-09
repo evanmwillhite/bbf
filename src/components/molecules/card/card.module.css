@@ -1,7 +1,13 @@
 /* Card */
-.card {
-  margin-right: 2%;
-  width: 33%;
+@media only screen and (min-width: 700px) {
+  .card {
+    margin-right: 2%;
+    width: 33%;
+  }
+}
+
+.cardTitle {
+  font-size: 1.9rem;
 }
 
 .cardText {
