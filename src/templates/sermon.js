@@ -1,15 +1,17 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
+
 import Layout from '../components/layout'
+import SEO from '../components/base/seo/seo'
 
 class SermonPostTemplate extends React.Component {
   render() {
     const sermon = get(this.props, 'data.contentfulSermon')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}>
+        <SEO title={sermon.title} />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
             <h1 className="section-headline">{sermon.title}</h1>
@@ -43,11 +45,6 @@ export default SermonPostTemplate
 
 export const pageQuery = graphql`
   query SermonBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     contentfulSermon(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")

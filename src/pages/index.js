@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
 import Layout from '../components/layout'
+import SEO from '../components/base/seo/seo'
 import ArticlePreview from '../components/molecules/teasers/article'
 import SermonPreview from '../components/molecules/teasers/sermon'
 import CardGrid from '../components/organisms/cardGrid/cardGrid'
@@ -12,12 +13,12 @@ import TeaserList from '../components/organisms/teaserList/teaserList'
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}>
+        <SEO title="Home" />
         <div style={{ background: '#fff' }}>
           <Quote
             text="The home we long for and belong to is finally where Christ is. I believe that home is Christ's kingdom, which exists both within us and among us as we wend our prodigal ways through the world in search of it."
@@ -78,11 +79,6 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allContentfulBlogPost(limit: 1, sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {

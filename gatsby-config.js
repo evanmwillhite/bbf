@@ -25,7 +25,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Believers Baptist Fellowship',
+    title: 'Believers Baptist Fellowship - Church Serving Hendersonville and Sumner County',
+    author: `Evan Willhite`,
+    description: `CBF Baptist Church serving Hendersonville, Tennessee (TN) and Sumner County`
   },
   pathPrefix: '/bbf',
   plugins: [

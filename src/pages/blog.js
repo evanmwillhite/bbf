@@ -1,16 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+
 import Layout from '../components/layout'
+import SEO from '../components/base/seo/seo'
 import ArticlePreview from '../components/molecules/teasers/article'
 
 class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}>
+        <SEO title="Blog" />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
             <h1>Blog</h1>
@@ -34,11 +36,6 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {

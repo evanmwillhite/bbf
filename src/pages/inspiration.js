@@ -2,18 +2,19 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
+import SEO from '../components/base/seo/seo'
 import SermonPreview from '../components/molecules/teasers/sermon'
 import ArticlePreview from '../components/molecules/teasers/article'
 import TeaserList from '../components/organisms/teaserList/teaserList'
 
 class SermonsIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location}>
+        <SEO title="Inspiration" />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
             <h1>Inspiration</h1>
@@ -50,11 +51,6 @@ export default SermonsIndex
 
 export const pageQuery = graphql`
   query InspirationIndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allContentfulSermon(limit: 3, sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
