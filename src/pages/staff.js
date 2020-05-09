@@ -7,7 +7,7 @@ import PersonPreview from '../components/molecules/teasers/person'
 
 import styles from '../components/pages/staff.module.css'
 
-class SermonsIndex extends React.Component {
+class Staff extends React.Component {
   render() {
     const persons = get(this, 'props.data.allContentfulPerson.edges')
 
@@ -33,7 +33,7 @@ class SermonsIndex extends React.Component {
   }
 }
 
-export default SermonsIndex
+export default Staff
 
 export const pageQuery = graphql`
   query PersonIndexQuery {

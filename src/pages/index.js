@@ -15,6 +15,7 @@ class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
+    const pages = get(this, 'props.data.allContentfulPage.edges')
 
     return (
       <Layout location={this.props.location}>
@@ -26,21 +27,17 @@ class RootIndex extends React.Component {
           />
           <div className="wrapper">
             <CardGrid>
-              <Card
-                title="Visit Us"
-                text="Join us for study, worship or potluck."
-                link="/visit"
-              />
-              <Card
-                title="About BBF"
-                text="Learn about our ministries, history and staff."
-                link="/about"
-              />
-              <Card
-                title="Inspiration"
-                text="Sermon audio and pastors’ blog."
-                link="/inspiration"
-              />
+              {pages.map(({ node }) => {
+                return (
+                  <Card
+                    key={node.slug}
+                    title={node.title}
+                    text={node.shortDescription}
+                    link={node.slug}
+                    image={node.heroImage}
+                  />
+                )
+              })}
             </CardGrid>
             <TeaserList
               title="Recent sermon"
@@ -137,6 +134,20 @@ export const pageQuery = graphql`
               resizingBehavior: PAD
               background: "rgb:000000"
             ) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    allContentfulPage(filter: {title: {in: ["Visit", "About Us", "Inspiration"]}}, sort: {fields: publishDate}) {
+      edges {
+        node {
+          title
+          shortDescription
+          slug
+          heroImage {
+            fluid(maxWidth: 450, maxHeight: 450) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }

@@ -1,9 +1,40 @@
 /* Card */
+.card {
+  overflow: hidden;
+  padding: 0 2rem 2rem;
+  position: relative;
+}
+
+.card::after {
+  background-color: rgba(0,0,0,0.6);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 @media only screen and (min-width: 700px) {
   .card {
     margin-right: 2%;
     width: 33%;
   }
+}
+
+.image {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.copy {
+  color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .cardTitle {
