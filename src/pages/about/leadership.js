@@ -13,10 +13,10 @@ class Staff extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Staff" />
+        <SEO title="Leadership" />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
-            <h1>Staff</h1>
+            <h1>Leadership</h1>
             <ul className={styles.staffList}>
               {persons.map(({ node }) => {
                 return (
@@ -37,17 +37,13 @@ export default Staff
 
 export const pageQuery = graphql`
   query PersonIndexQuery {
-    allContentfulPerson(sort: {fields: name, order: ASC}) {
+    allContentfulPerson(sort: {fields: sortOrder}) {
       edges {
         node {
           name
           slug
           title
-          shortBio {
-            childMarkdownRemark {
-              html
-            }
-          }
+          shortDescription
           image {
             fluid(maxWidth: 500, maxHeight: 600, resizingBehavior: CROP) {
               ...GatsbyContentfulFluid_tracedSVG

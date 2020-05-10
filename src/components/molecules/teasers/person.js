@@ -17,10 +17,8 @@ export default ({ person }) => (
     <h3 className={styles.previewSubTitle}>
       {person.title}
     </h3>
-    <div
-      dangerouslySetInnerHTML={{
-        __html: person.shortBio.childMarkdownRemark.html,
-      }}
-    />
+    <p>
+      {person.shortDescription}
+    </p>
   </div>
 )

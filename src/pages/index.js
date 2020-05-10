@@ -41,7 +41,7 @@ class RootIndex extends React.Component {
             </CardGrid>
             <TeaserList
               title="Recent sermon"
-              link="/sermons"
+              link="/inspiration/sermons/"
               linkText="All Sermons"
             >
               {sermons.map(({ node }) => {
@@ -54,7 +54,7 @@ class RootIndex extends React.Component {
             </TeaserList>
             <TeaserList
               title="Recent blog"
-              link="/blog"
+              link="/inspiration/blog/"
               linkText="Read More"
             >
               {posts.map(({ node }) => {

@@ -8,6 +8,7 @@ import TeaserList from '../components/organisms/teaserList/teaserList'
 import SermonPreview from '../components/molecules/teasers/sermon'
 import ArticlePreview from '../components/molecules/teasers/article'
 import AboutGrid from '../components/organisms/cardGrid/variations/aboutGrid'
+import HistoryGrid from '../components/organisms/cardGrid/variations/historyGrid'
 
 class PageTemplate extends React.Component {
   render() {
@@ -22,6 +23,10 @@ class PageTemplate extends React.Component {
     
     if (this.props.location.pathname === '/about/' || this.props.location.pathname === '/about') {
       pageTitle = 'About'
+    }
+
+    if (this.props.location.pathname === '/about/history/' || this.props.location.pathname === '/about/history') {
+      pageTitle = 'History'
     }
 
     return (
@@ -40,7 +45,7 @@ class PageTemplate extends React.Component {
               <div>
                 <TeaserList
                   title="Recent Sermons"
-                  link="/sermons"
+                  link="/inspiration/sermons/"
                   linkText="All Sermons"
                 >
                   {sermons.map(({ node }) => {
@@ -51,7 +56,7 @@ class PageTemplate extends React.Component {
                 </TeaserList>
                 <TeaserList
                   title="Recent Blog"
-                  link="/blog"
+                  link="/inspiration/blog/"
                   linkText="All Posts"
                 >
                   {posts.map(({ node }) => {
@@ -64,6 +69,9 @@ class PageTemplate extends React.Component {
             }
             {pageTitle === 'About' &&
               <AboutGrid />
+            }
+            {pageTitle === 'History' &&
+              <HistoryGrid />
             }
           </div>
         </div>

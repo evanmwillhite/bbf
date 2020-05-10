@@ -54,7 +54,6 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 20vh;
   max-height: 100px;
   font-size: 1.25rem;
 }
@@ -64,6 +63,7 @@
     border-bottom: none;
     display: flex;
     justify-content: center;
+    margin-top: 3rem;
   }
 }
 
@@ -77,8 +77,9 @@
 @media only screen and (min-width: 700px) {
   .navigationItem {
     border-top: none;
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
+    height: 41px;
     margin: 0 1em;
     position: relative;
   }
@@ -162,12 +163,12 @@
 
 @media only screen and (min-width: 700px) {
   .subNav {
-    bottom: -71px;
     display: none;
     left: 0;
     list-style: none;
     padding: 0;
     position: absolute;
+    top: 35px;
     width: auto;
   }
 }
