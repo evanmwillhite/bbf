@@ -7,12 +7,12 @@ import styles from './person.module.css'
 export default ({ person }) => (
   <div className={styles.personPreview}>
     <div className={styles.image}>
-      <Link to={`/staff/${person.slug}`}>
+      <Link to={person.slug}>
         <Img alt="" fluid={person.image.fluid} />
       </Link>
     </div>
     <h2 className={styles.previewTitle}>
-    <Link to={`/staff/${person.slug}`}>{person.name}</Link>
+    <Link to={person.slug}>{person.name}</Link>
     </h2>
     <h3 className={styles.previewSubTitle}>
       {person.title}

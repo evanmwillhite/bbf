@@ -84,7 +84,7 @@ export default class Nav extends Component {
                   <Link className={navLinkClasses} to="/about/history/">History</Link>
                 </li>
                 <li>
-                  <Link className={navLinkClasses} to="/about/staff/">Staff</Link>
+                  <Link className={navLinkClasses} to="/about/leadership/">Leadership</Link>
                 </li>
               </ul>
             </li>
