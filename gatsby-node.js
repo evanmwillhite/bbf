@@ -57,7 +57,7 @@ exports.createPages = ({ graphql, actions }) => {
         const posts = result.data.allContentfulBlogPost.edges
         posts.forEach((post) => {
           createPage({
-            path: `/blog/${post.node.slug}/`,
+            path: `/inspiration/blog/${post.node.slug}/`,
             component: blogPost,
             context: {
               slug: post.node.slug
@@ -93,7 +93,7 @@ exports.createPages = ({ graphql, actions }) => {
         const sermons = result.data.allContentfulSermon.edges
         sermons.forEach((sermon) => {
           createPage({
-            path: `/sermons/${sermon.node.slug}/`,
+            path: `/inspiration/sermons/${sermon.node.slug}/`,
             component: sermonLayout,
             context: {
               slug: sermon.node.slug

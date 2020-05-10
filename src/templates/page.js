@@ -7,26 +7,26 @@ import SEO from '../components/base/seo/seo'
 import TeaserList from '../components/organisms/teaserList/teaserList'
 import SermonPreview from '../components/molecules/teasers/sermon'
 import ArticlePreview from '../components/molecules/teasers/article'
+import PersonPreview from '../components/molecules/teasers/person'
 import CardGrid from '../components/organisms/cardGrid/cardGrid'
 import Card from '../components/molecules/card/card'
+
+import styles from '../components/pages/staff.module.css'
 
 class PageTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulPage')
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const persons = get(this, 'props.data.allContentfulPerson.edges')
     let pageTitle
 
     if (this.props.location.pathname === '/inspiration/' || this.props.location.pathname === '/inspiration') {
       pageTitle = 'Inspiration'
     }
-    
-    if (this.props.location.pathname === '/about/' || this.props.location.pathname === '/about') {
-      pageTitle = 'About'
-    }
 
-    if (this.props.location.pathname === '/about/history/' || this.props.location.pathname === '/about/history') {
-      pageTitle = 'History'
+    if (this.props.location.pathname === '/about/leadership/' || this.props.location.pathname === '/about/leadership') {
+      pageTitle = 'Leadership'
     }
 
     return (
@@ -66,6 +66,17 @@ class PageTemplate extends React.Component {
                   })}
                 </TeaserList>
               </div>
+            }
+            {pageTitle === 'Leadership' && 
+              <ul className={styles.staffList}>
+                {persons.map(({ node }) => {
+                  return (
+                    <li className={styles.staffItem} key={node.slug}>
+                      <PersonPreview person={node} />
+                    </li>
+                  )
+                })}
+              </ul>
             }
             {post.featuredPages &&
               <CardGrid>
@@ -155,6 +166,21 @@ export const pageQuery = graphql`
           description {
             childMarkdownRemark {
               html
+            }
+          }
+        }
+      }
+    }
+    allContentfulPerson(sort: {fields: sortOrder}) {
+      edges {
+        node {
+          name
+          slug
+          title
+          shortDescription
+          image {
+            fluid(maxWidth: 500, maxHeight: 600, resizingBehavior: CROP) {
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
