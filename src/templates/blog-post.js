@@ -28,7 +28,7 @@ class BlogPostTemplate extends React.Component {
               }}
             />
             <br />
-            <Link className="button" to="/blog">Back to Blog</Link>
+            <Link className="button" to="/inspiration/blog">Back to Blog</Link>
           </div>
         </div>
       </Layout>
