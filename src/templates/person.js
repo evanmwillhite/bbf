@@ -2,20 +2,20 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
+
 import Layout from '../components/layout'
-import Head from '../components/base/head/head'
+import SEO from '../components/base/seo/seo'
 
 import styles from '../components/pages/person.module.css';
 
 class BlogPostTemplate extends React.Component {
   render() {
     const person = get(this.props, 'data.contentfulPerson')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
       <Layout location={this.props.location}>
+        <SEO title={person.name} />
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <div className={styles.person + " wrapper"}>
             <h1 className="section-headline">{person.name}</h1>
             <div className={styles.personImage}>
@@ -38,11 +38,6 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query PersonBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     contentfulPerson(slug: { eq: $slug }) {
       name
       title

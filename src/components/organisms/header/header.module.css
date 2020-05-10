@@ -1,0 +1,93 @@
+.header {
+  overflow: hidden;
+  position: relative;
+}
+
+.headerImage {
+  background: url(../../../img/bible.jpg) no-repeat scroll 80% 48%;
+  background-size: cover;
+}
+
+.heroImage {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.heroImage * {
+  height: 100%;
+  width: 100%;
+}
+
+.headerHome {
+  background-position: 0 0;
+  padding-bottom: 0;
+}
+
+.headerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 700px) {
+  .headerWrapper {
+    padding: 2rem;
+  }
+}
+
+.headerWrapper::before {
+  background-color: rgba(0,0,0,0.4);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.logo {
+  background-image: url(../../../img/logo.png);
+  background-size: cover;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 193px;
+  position: relative;
+  width: 190px;
+}
+
+@media only screen and (min-width: 700px) {
+  .logo {
+    padding-top: 222px;
+    width: 220px;
+  }
+}
+
+.heading {
+  color: white;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 2rem 0 2rem 0;
+  max-width: 675px;
+  position: relative;
+  width: 100%;
+}
+
+@media only screen and (min-width: 700px) {
+  .heading {
+    font-size: 3rem;
+    margin: 11rem 0 4rem 11%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .heading {
+    font-size: 3.5rem;
+    margin: 11rem 0 4rem 25%;
+  }
+}

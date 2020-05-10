@@ -1,19 +1,46 @@
 .sermonPreview {
-  display: flex; 
-  justify-content: space-between;
   margin-bottom: 3rem;
 }
 
-.sermonPreview > * {
-  width: 50%;
+@media only screen and (min-width: 700px) {
+  .sermonPreview {
+    display: flex; 
+    justify-content: space-between;
+  }
+  
+  .sermonPreview > * {
+    width: 60%;
+  }
+  
+  .sermonLeft {
+    width: 40%;
+  }
 }
 
-.sermonLeft {
-  width: 30%;
+@media only screen and (min-width: 1024px) {
+  .sermonPreview > * {
+    width: 50%;
+  }
+  
+  .sermonLeft {
+    width: 30%;
+  }
 }
 
 .previewTitle {
   font-size: 1.5em;
   margin-bottom: 0.15rem;
   margin-top: 0;
+}
+
+.scripture {
+  font-size: 1.1rem;
+}
+
+.scripture a {
+  text-decoration: none;
+}
+
+.scripture a:hover {
+  text-decoration: underline;
 }

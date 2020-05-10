@@ -1,0 +1,36 @@
+/* Quote */
+.quoteWrap {
+  background-color: #c79288;
+  color: #fff;
+}
+
+@media only screen and (min-width: 700px) {
+  .quoteWrap {
+    padding: 1.25rem 2rem;
+  }
+}
+
+.quote {
+  border: none;
+  font: italic 1.3rem 'Lora', serif;
+  line-height: 1.6;
+  max-width: 780px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+@media only screen and (min-width: 700px) {
+  .quote {
+    border-left: 2px solid #eee;
+    padding-left: 2rem;
+  }
+}
+
+.quoteText {
+  margin-bottom: 0.7rem;
+}
+
+.cite {
+  font-style: normal;
+  font-size: 0.9rem;
+}

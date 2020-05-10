@@ -1,5 +1,4 @@
 .preview {
-  display: flex;
   margin-bottom: 3rem;
 }
 
@@ -9,12 +8,24 @@
 }
 
 .image {
-  margin-right: 3rem;
-  width: 25%;
+  margin-bottom: 1rem;
 }
 
-.content {
-  width: 75%;
+@media only screen and (min-width: 700px) {
+  .preview {
+    display: flex;
+    margin-bottom: 3rem;
+  }
+  
+  .image {
+    margin-bottom: 0;
+    margin-right: 3rem;
+    width: 25%;
+  }
+  
+  .content {
+    width: 75%;
+  }
 }
 
 .tag {

@@ -1,73 +1,70 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
-import styles from '../components/pages/home.module.css'
-
-import Head from '../components/base/head/head'
 import Layout from '../components/layout'
+import SEO from '../components/base/seo/seo'
 import ArticlePreview from '../components/molecules/teasers/article'
 import SermonPreview from '../components/molecules/teasers/sermon'
+import CardGrid from '../components/organisms/cardGrid/cardGrid'
+import Card from '../components/molecules/card/card'
+import Quote from '../components/molecules/quote/quote'
+import TeaserList from '../components/organisms/teaserList/teaserList'
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
+    const pages = get(this, 'props.data.allContentfulPage.edges')
 
     return (
       <Layout location={this.props.location}>
+        <SEO title="Home" />
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
-          <div className={styles.quoteWrap}>
-            <div className="wrapper">
-              <blockquote className={styles.quote}>
-                <p className={styles.quoteText}>The home we long for and belong to is finally where Christ is. I believe that home is Christ's kingdom, which exists both within us and among us as we wend our prodigal ways through the world in search of it.</p>
-                <cite className={styles.cite}>—Frederick Buechner</cite>
-              </blockquote>
-            </div>
-          </div>
+          <Quote
+            text="The home we long for and belong to is finally where Christ is. I believe that home is Christ's kingdom, which exists both within us and among us as we wend our prodigal ways through the world in search of it."
+            cite="—Frederick Buechner"
+          />
           <div className="wrapper">
-            <section className={styles.cardGrid}>
-              <article className={styles.card}>
-                <h3 className={styles.cardTitle}>Visit</h3>
-                <h4 className={styles.cardText}>Join us for study, worship or potluck.</h4>
-                <Link className={styles.cardLink} to="/visit">Read More</Link>
-              </article>
-              <article className={styles.card}>
-                <h3 className={styles.cardTitle}>About</h3>
-                <h4 className={styles.cardText}>Learn about our ministries, history and staff.</h4>
-                <Link className={styles.cardLink} to="/about">Read More</Link>
-              </article>
-              <article className={styles.card}>
-                <h3 className={styles.cardTitle}>Inspiration</h3>
-                <h4 className={styles.cardText}>Sermon audio and pastors’ blog.</h4>
-                <Link className={styles.cardLink} to="/inspiration">Read More</Link>
-              </article>
-            </section>
-            <section className={styles.list}>
-              <h2 className={styles.listTitle}>Recent sermon</h2>
-                {sermons.map(({ node }) => {
-                  return (
-                    <article className={styles.listItem} key={node.slug}>
-                      <SermonPreview article={node} />
-                    </article>
-                  )
-                })}
-              <Link className="button button-center" to="/sermons">All Sermons</Link>
-            </section>
-            <section className={styles.list}>
-              <h2 className={styles.listTitle}>Recent blog</h2>
-                {posts.map(({ node }) => {
-                  return (
-                    <article className={styles.listItem} key={node.slug}>
-                      <ArticlePreview article={node} />
-                    </article>
-                  )
-                })}
-              <Link className="button button-center" to="/blog">Read More</Link>
-            </section>
+            <CardGrid>
+              {pages.map(({ node }) => {
+                return (
+                  <Card
+                    key={node.slug}
+                    title={node.title}
+                    text={node.shortDescription}
+                    link={node.slug}
+                    image={node.heroImage}
+                  />
+                )
+              })}
+            </CardGrid>
+            <TeaserList
+              title="Recent sermon"
+              link="/sermons"
+              linkText="All Sermons"
+            >
+              {sermons.map(({ node }) => {
+                return (
+                  <article key={node.slug}>
+                    <SermonPreview sermon={node} />
+                  </article>
+                )
+              })}
+            </TeaserList>
+            <TeaserList
+              title="Recent blog"
+              link="/blog"
+              linkText="Read More"
+            >
+              {posts.map(({ node }) => {
+                return (
+                  <article key={node.slug}>
+                    <ArticlePreview article={node} />
+                  </article>
+                )
+              })}
+            </TeaserList>
           </div>
         </div>
       </Layout>
@@ -79,11 +76,6 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allContentfulBlogPost(limit: 1, sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
@@ -142,6 +134,20 @@ export const pageQuery = graphql`
               resizingBehavior: PAD
               background: "rgb:000000"
             ) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    allContentfulPage(filter: {title: {in: ["Visit", "About Us", "Inspiration"]}}, sort: {fields: publishDate}) {
+      edges {
+        node {
+          title
+          shortDescription
+          slug
+          heroImage {
+            fluid(maxWidth: 450, maxHeight: 450) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }

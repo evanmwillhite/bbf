@@ -2,25 +2,24 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
+import SEO from '../components/base/seo/seo'
 import SermonPreview from '../components/molecules/teasers/sermon'
-import Head from '../components/base/head/head'
 
 class SermonsIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
 
     return (
       <Layout location={this.props.location}>
+        <SEO title="Sermons" />
         <div style={{ background: '#fff' }}>
-          <Head siteTitle={siteTitle} />
           <div className="wrapper">
             <h1>Sermons</h1>
-            <ul className="article-list">
+            <ul className="list-reset">
               {sermons.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <SermonPreview article={node} />
+                    <SermonPreview sermon={node} />
                   </li>
                 )
               })}
@@ -52,6 +51,8 @@ export const pageQuery = graphql`
               html
             }
           }
+          scripture
+          scriptureLink
           embed {
             content {
               content {
