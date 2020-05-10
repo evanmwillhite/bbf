@@ -33,7 +33,7 @@ class SermonPostTemplate extends React.Component {
               }}
             />
             <br />
-            <Link className="button" to="/sermons">Back to All Sermons</Link>
+            <Link className="button" to="/inspiration/sermons">Back to All Sermons</Link>
           </div>
         </div>
       </Layout>
