@@ -151,6 +151,10 @@ blockquote {
   max-width: 680px;
 }
 
+.content-wrapper {
+  margin-bottom: 2rem;
+}
+
 .content-wrapper iframe {
     width: 100%;
 }

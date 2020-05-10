@@ -21,12 +21,19 @@ class BlogPostTemplate extends React.Component {
             <div className={styles.personImage}>
               <Img alt="" fluid={person.image.fluid} />
             </div>
-            <div
-              className="content-wrapper"
-              dangerouslySetInnerHTML={{
-                __html: person.shortBio.childMarkdownRemark.html,
-              }}
-            />
+            <div className="content-wrapper">
+              <h2 className={styles.personTitle}>
+                {person.title}
+              </h2>
+              <h3 className={styles.personSubTitle}>
+                {person.shortDescription}
+              </h3>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: person.shortBio.childMarkdownRemark.html,
+                }}
+              />
+            </div>
           </div>
         </div>
       </Layout>
@@ -41,6 +48,7 @@ export const pageQuery = graphql`
     contentfulPerson(slug: { eq: $slug }) {
       name
       title
+      shortDescription
       image {
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid_tracedSVG

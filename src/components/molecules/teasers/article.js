@@ -11,7 +11,7 @@ export default ({ article }) => (
     </div>
     <div className={styles.content}>
       <h3 className={styles.previewTitle}>
-        <Link to={`/blog/${article.slug}`}>{article.title}</Link>
+        <Link to={`/inspiration/blog/${article.slug}`}>{article.title}</Link>
       </h3>
       <small>{article.publishDate}</small>
       <div

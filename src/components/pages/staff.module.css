@@ -7,10 +7,12 @@
 @media only screen and (min-width: 700px) {
   .staffList {
     display: flex;
+    flex-wrap: wrap;
   }
   
   .staffItem {
+    margin-bottom: 3rem;
     margin-right: 14%;
-    width: 50%;
+    width: 36%;
   }
 }

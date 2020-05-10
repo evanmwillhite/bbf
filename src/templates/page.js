@@ -7,21 +7,26 @@ import SEO from '../components/base/seo/seo'
 import TeaserList from '../components/organisms/teaserList/teaserList'
 import SermonPreview from '../components/molecules/teasers/sermon'
 import ArticlePreview from '../components/molecules/teasers/article'
-import AboutGrid from '../components/organisms/cardGrid/variations/aboutGrid'
+import PersonPreview from '../components/molecules/teasers/person'
+import CardGrid from '../components/organisms/cardGrid/cardGrid'
+import Card from '../components/molecules/card/card'
+
+import styles from '../components/pages/staff.module.css'
 
 class PageTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulPage')
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const persons = get(this, 'props.data.allContentfulPerson.edges')
     let pageTitle
 
     if (this.props.location.pathname === '/inspiration/' || this.props.location.pathname === '/inspiration') {
       pageTitle = 'Inspiration'
     }
-    
-    if (this.props.location.pathname === '/about/' || this.props.location.pathname === '/about') {
-      pageTitle = 'About'
+
+    if (this.props.location.pathname === '/about/leadership/' || this.props.location.pathname === '/about/leadership') {
+      pageTitle = 'Leadership'
     }
 
     return (
@@ -40,7 +45,7 @@ class PageTemplate extends React.Component {
               <div>
                 <TeaserList
                   title="Recent Sermons"
-                  link="/sermons"
+                  link="/inspiration/sermons/"
                   linkText="All Sermons"
                 >
                   {sermons.map(({ node }) => {
@@ -51,7 +56,7 @@ class PageTemplate extends React.Component {
                 </TeaserList>
                 <TeaserList
                   title="Recent Blog"
-                  link="/blog"
+                  link="/inspiration/blog/"
                   linkText="All Posts"
                 >
                   {posts.map(({ node }) => {
@@ -62,8 +67,31 @@ class PageTemplate extends React.Component {
                 </TeaserList>
               </div>
             }
-            {pageTitle === 'About' &&
-              <AboutGrid />
+            {pageTitle === 'Leadership' && 
+              <ul className={styles.staffList}>
+                {persons.map(({ node }) => {
+                  return (
+                    <li className={styles.staffItem} key={node.slug}>
+                      <PersonPreview person={node} />
+                    </li>
+                  )
+                })}
+              </ul>
+            }
+            {post.featuredPages &&
+              <CardGrid>
+                {post.featuredPages.map((node) => {
+                  return (
+                    <Card
+                      key={node.slug}
+                      title={node.title}
+                      text={node.shortDescription}
+                      link={node.slug}
+                      image={node.heroImage}
+                    />
+                  )
+                })}
+              </CardGrid>
             }
           </div>
         </div>
@@ -87,6 +115,16 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
+        }
+      }
+      featuredPages {
+        slug
+        title
+        shortDescription
+        heroImage {
+          fluid(maxWidth: 450, maxHeight: 450) {
+            ...GatsbyContentfulFluid_tracedSVG
+          }
         }
       }
     }
@@ -128,6 +166,21 @@ export const pageQuery = graphql`
           description {
             childMarkdownRemark {
               html
+            }
+          }
+        }
+      }
+    }
+    allContentfulPerson(sort: {fields: sortOrder}) {
+      edges {
+        node {
+          name
+          slug
+          title
+          shortDescription
+          image {
+            fluid(maxWidth: 500, maxHeight: 600, resizingBehavior: CROP) {
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }

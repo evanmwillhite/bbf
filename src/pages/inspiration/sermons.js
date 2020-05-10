@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Layout from '../components/layout'
-import SEO from '../components/base/seo/seo'
-import SermonPreview from '../components/molecules/teasers/sermon'
+import Layout from '../../components/layout'
+import SEO from '../../components/base/seo/seo'
+import SermonPreview from '../../components/molecules/teasers/sermon'
 
 class SermonsIndex extends React.Component {
   render() {

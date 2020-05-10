@@ -90,6 +90,17 @@ export default class Nav extends Component {
             </li>
             <li className={styles.navigationItem}>
               <Link className={navLinkClasses} to="/inspiration/">Inspiration</Link>
+              <span className={styles.expandSub} onClick={((e) => this.showNext(e))}>
+                <Down />
+              </span>
+              <ul className={styles.subNav}>
+                <li>
+                  <Link className={navLinkClasses} to="/inspiration/sermons/">Sermons</Link>
+                </li>
+                <li>
+                  <Link className={navLinkClasses} to="/inspiration/blog/">Blog</Link>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>

@@ -7,3 +7,14 @@
   margin-right: 2rem;
   width: 40%;
 }
+
+.personTitle {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+}
+
+.personSubTitle {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 0.5rem 0 2rem;
+}
