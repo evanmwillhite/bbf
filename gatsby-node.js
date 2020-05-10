@@ -81,7 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
         const persons = result.data.allContentfulPerson.edges
         persons.forEach((person) => {
           createPage({
-            path: `/staff/${person.node.slug}/`,
+            path: `/about/leadership/${person.node.slug}/`,
             component: personLayout,
             context: {
               slug: person.node.slug

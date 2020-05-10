@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Layout from '../components/layout'
-import SEO from '../components/base/seo/seo'
-import PersonPreview from '../components/molecules/teasers/person'
+import Layout from '../../components/layout'
+import SEO from '../../components/base/seo/seo'
+import PersonPreview from '../../components/molecules/teasers/person'
 
-import styles from '../components/pages/staff.module.css'
+import styles from '../../components/pages/staff.module.css'
 
 class Staff extends React.Component {
   render() {

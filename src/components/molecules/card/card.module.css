@@ -1,6 +1,7 @@
 /* Card */
 .card {
   overflow: hidden;
+  margin-bottom: 2rem;
   padding: 0 2rem 2rem;
   position: relative;
 }
@@ -18,6 +19,7 @@
 
 @media only screen and (min-width: 700px) {
   .card {
+    margin-bottom: 0;
     margin-right: 2%;
     width: 33%;
   }

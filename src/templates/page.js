@@ -7,8 +7,9 @@ import SEO from '../components/base/seo/seo'
 import TeaserList from '../components/organisms/teaserList/teaserList'
 import SermonPreview from '../components/molecules/teasers/sermon'
 import ArticlePreview from '../components/molecules/teasers/article'
+import AboutGrid from '../components/organisms/cardGrid/variations/aboutGrid'
 
-class BlogPostTemplate extends React.Component {
+class PageTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulPage')
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
@@ -17,7 +18,11 @@ class BlogPostTemplate extends React.Component {
 
     if (this.props.location.pathname === '/inspiration/' || this.props.location.pathname === '/inspiration') {
       pageTitle = 'Inspiration'
-    } 
+    }
+    
+    if (this.props.location.pathname === '/about/' || this.props.location.pathname === '/about') {
+      pageTitle = 'About'
+    }
 
     return (
       <Layout location={this.props.location} heroImage={post.heroImage}>
@@ -57,6 +62,9 @@ class BlogPostTemplate extends React.Component {
                 </TeaserList>
               </div>
             }
+            {pageTitle === 'About' &&
+              <AboutGrid />
+            }
           </div>
         </div>
       </Layout>
@@ -64,7 +72,7 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default PageTemplate
 
 export const pageQuery = graphql`
   query PageBySlug($slug: String!) {
