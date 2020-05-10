@@ -7,8 +7,8 @@ import SEO from '../components/base/seo/seo'
 import TeaserList from '../components/organisms/teaserList/teaserList'
 import SermonPreview from '../components/molecules/teasers/sermon'
 import ArticlePreview from '../components/molecules/teasers/article'
-import AboutGrid from '../components/organisms/cardGrid/variations/aboutGrid'
-import HistoryGrid from '../components/organisms/cardGrid/variations/historyGrid'
+import CardGrid from '../components/organisms/cardGrid/cardGrid'
+import Card from '../components/molecules/card/card'
 
 class PageTemplate extends React.Component {
   render() {
@@ -67,11 +67,20 @@ class PageTemplate extends React.Component {
                 </TeaserList>
               </div>
             }
-            {pageTitle === 'About' &&
-              <AboutGrid />
-            }
-            {pageTitle === 'History' &&
-              <HistoryGrid />
+            {post.featuredPages &&
+              <CardGrid>
+                {post.featuredPages.map((node) => {
+                  return (
+                    <Card
+                      key={node.slug}
+                      title={node.title}
+                      text={node.shortDescription}
+                      link={node.slug}
+                      image={node.heroImage}
+                    />
+                  )
+                })}
+              </CardGrid>
             }
           </div>
         </div>
@@ -95,6 +104,16 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
+        }
+      }
+      featuredPages {
+        slug
+        title
+        shortDescription
+        heroImage {
+          fluid(maxWidth: 450, maxHeight: 450) {
+            ...GatsbyContentfulFluid_tracedSVG
+          }
         }
       }
     }
