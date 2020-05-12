@@ -182,6 +182,11 @@ export const pageQuery = graphql`
           slug
           title
           shortDescription
+          shortBio {
+            childMarkdownRemark {
+              html
+            }
+          }
           image {
             fluid(maxWidth: 500, maxHeight: 600) {
               ...GatsbyContentfulFluid

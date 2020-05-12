@@ -7,12 +7,23 @@ import styles from './person.module.css'
 export default ({ person }) => (
   <div className={styles.personPreview}>
     <div className={styles.image}>
-      <Link to={person.slug}>
+      {console.log(person.shortBio)}
+      {person.shortBio !== null && 
+        <Link to={person.slug}>
+          <Img alt="" fluid={person.image.fluid} />
+        </Link>
+      }
+      {person.shortBio == null && 
         <Img alt="" fluid={person.image.fluid} />
-      </Link>
+      }
     </div>
     <h2 className={styles.previewTitle}>
-    <Link to={person.slug}>{person.name}</Link>
+    {person.shortBio !== null && 
+      <Link to={person.slug}>{person.name}</Link>
+    }
+    {person.shortBio == null && 
+      <span>{person.name}</span>
+    }
     </h2>
     <h3 className={styles.previewSubTitle}>
       {person.title}
