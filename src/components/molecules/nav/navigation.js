@@ -78,7 +78,7 @@ export default class Nav extends Component {
               </span>
               <ul className={styles.subNav}>
                 <li>
-                  <Link className={navLinkClasses} to="/about/missions/">Missions</Link>
+                  <Link className={navLinkClasses} to="/about/affiliations/">Affiliations</Link>
                 </li>
                 <li>
                   <Link className={navLinkClasses} to="/about/history/">History</Link>
