@@ -183,7 +183,7 @@ export const pageQuery = graphql`
           title
           shortDescription
           image {
-            fluid(maxWidth: 500, maxHeight: 600, resizingBehavior: CROP, cropFocus: TOP) {
+            fluid(maxWidth: 500, maxHeight: 600, resizingBehavior: CROP) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
