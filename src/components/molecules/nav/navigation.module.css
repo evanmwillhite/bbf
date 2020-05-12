@@ -26,8 +26,8 @@
   cursor: pointer;
   float: right;
   position: relative;
-  top: -40px;
-  right: -13px;
+  top: -27px;
+  right: -3px;
 }
 
 .mobileNavClose svg {
@@ -107,11 +107,12 @@
 }
 
 .expandSub svg {
-  height: 25px;
-  left: 10px;
+  height: 32px;
+  float: right;
+  left: 16px;
   position: relative;
-  top: 14px;
-  width: 25px;
+  top: 8px;
+  width: 32px;
 }
 
 .expandSubOpen svg {
@@ -121,17 +122,6 @@
 /*
  * Sub Navigation
  */
-
-/* LI (Nested) */
-/* .main-menu__item--sub {
-  @include medium {
-    display: block;
-
-    &:not(:first-child) {
-      border-top: 1px solid clr(highlight);
-    }
-  }
-} */
 
 @media only screen and (min-width: 700px) {
   .navigationItem:hover .subNav {
@@ -144,6 +134,7 @@
   font: 1.35rem 'Lora', serif;
   margin: 0.75rem 0;
   text-decoration: none;
+  width: 77%;
 }
 
 .navlink:hover {
