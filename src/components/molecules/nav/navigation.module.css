@@ -24,10 +24,9 @@
 .mobileNavClose {
   display: block;
   cursor: pointer;
-  float: right;
-  position: relative;
-  top: -27px;
-  right: -3px;
+  position: absolute;
+  top: 28px;
+  right: 29px;
 }
 
 .mobileNavClose svg {
@@ -53,7 +52,7 @@
 .navigation {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 2rem 0 0;
   max-height: 100px;
   font-size: 1.25rem;
 }
