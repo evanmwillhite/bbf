@@ -25,7 +25,7 @@ class RootIndex extends React.Component {
             text="The home we long for and belong to is finally where Christ is. I believe that home is Christ's kingdom, which exists both within us and among us as we wend our prodigal ways through the world in search of it."
             cite="—Frederick Buechner"
           />
-          <div className="wrapper">
+          <div className="wrapper wrapper-home">
             <CardGrid>
               {pages.map(({ node }) => {
                 return (
@@ -83,6 +83,10 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "MMMM Do, YYYY")
           tags
+          author {
+            name
+            slug
+          }
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid_tracedSVG

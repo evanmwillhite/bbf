@@ -133,6 +133,10 @@ blockquote {
   padding: 2rem 1.5rem;
 }
 
+.wrapper-home {
+  padding-top: 1rem;
+}
+
 @media only screen and (min-width: 900px) {
   .content-flex {
     display: flex;
@@ -150,6 +154,10 @@ blockquote {
     margin: 0 auto;
     max-width: 1024px;
     padding: 3rem 2rem;
+  }
+
+  .wrapper-home {
+    padding-top: 1rem;
   }
 }
 

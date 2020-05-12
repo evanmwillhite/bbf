@@ -21,6 +21,23 @@
   padding: 0;
 }
 
+.footer span {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-width: 940px) {
+  .footer span {
+    display: inline;
+    margin-bottom: 0;
+  }
+
+  .footer span:not(:last-child)::after {
+    content: "|";
+    margin: 0 0.5rem;
+  }
+}
+
 .footer a {
   color: #fff;
   text-decoration: none;
@@ -32,5 +49,12 @@
 
 .footerListItem {
   display: inline-block;
-  margin: 0 0.5rem;
+  margin: 0 0.75rem;
+}
+
+.youtube svg {
+  height: 37px;
+  position: relative;
+  top: 2px;
+  width: 37px;
 }

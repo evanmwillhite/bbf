@@ -13,7 +13,10 @@ export default ({ article }) => (
       <h3 className={styles.previewTitle}>
         <Link to={`/inspiration/blog/${article.slug}`}>{article.title}</Link>
       </h3>
-      <small>{article.publishDate}</small>
+      <h4 className={styles.author}>
+        <span>by: </span><Link to={article.author.slug}>{article.author.name}</Link>
+        <small>{article.publishDate}</small>
+      </h4>
       <div
         dangerouslySetInnerHTML={{
           __html: article.description.childMarkdownRemark.html,

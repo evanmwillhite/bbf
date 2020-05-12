@@ -5,6 +5,8 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
 
+import styles from '../components/pages/blog.module.css'
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
@@ -15,13 +17,16 @@ class BlogPostTemplate extends React.Component {
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: 'block',
-              }}
-            >
-              {post.publishDate}
-            </p>
+            <div className={styles.meta}>
+              <span>by:&nbsp;</span><Link to={post.author.slug}>{post.author.name}</Link>
+              <p
+                style={{
+                  display: 'block',
+                }}
+              >
+                {post.publishDate}
+              </p>
+            </div>
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
@@ -52,6 +57,10 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      author {
+        name
+        slug
       }
     }
   }
