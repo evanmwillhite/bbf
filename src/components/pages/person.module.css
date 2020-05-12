@@ -2,10 +2,13 @@
   overflow: hidden;
 }
 
-.personImage {
-  float: left;
-  margin-right: 2rem;
-  width: 40%;
+@media only screen and (min-width: 700px) {
+  .personImage {
+    float: left;
+    margin-right: 2rem;
+    width: 40%;
+  }
+  
 }
 
 .personTitle {
