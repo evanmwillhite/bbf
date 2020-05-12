@@ -14,7 +14,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title={person.name} />
+        <SEO title={person.name} url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
           <div className={styles.person + " wrapper"}>
             <h1 className="section-headline">{person.name}</h1>
@@ -28,11 +28,13 @@ class BlogPostTemplate extends React.Component {
               <h3 className={styles.personSubTitle}>
                 {person.shortDescription}
               </h3>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: person.shortBio.childMarkdownRemark.html,
-                }}
-              />
+              {person.shortBio !== null &&
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: person.shortBio.childMarkdownRemark.html,
+                  }}
+                />
+              }
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ class SermonsIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Sermons" />
+        <SEO title="Sermons" url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
             <h1>Sermons</h1>

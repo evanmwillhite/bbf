@@ -7,7 +7,6 @@ import styles from './person.module.css'
 export default ({ person }) => (
   <div className={styles.personPreview}>
     <div className={styles.image}>
-      {console.log(person.shortBio)}
       {person.shortBio !== null && 
         <Link to={person.slug}>
           <Img alt="" fluid={person.image.fluid} />

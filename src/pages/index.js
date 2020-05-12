@@ -19,7 +19,7 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" />
+        <SEO title="Home" url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
           <Quote
             text="The home we long for and belong to is finally where Christ is. I believe that home is Christ's kingdom, which exists both within us and among us as we wend our prodigal ways through the world in search of it."

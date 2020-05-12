@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import favicon from '../../../img/favicon.png';
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, url, image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -21,6 +21,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            defaultImage
           }
         }
       }
@@ -28,6 +29,7 @@ function SEO({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const ogImage = image || site.siteMetadata.defaultImage
 
   return (
     <Helmet
@@ -46,12 +48,20 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
+          property: `og:url`,
+          content: url,
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: ogImage,
         },
       ].concat(meta)}
     >
@@ -65,6 +75,7 @@ SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  image: null,
 }
 
 SEO.propTypes = {
@@ -72,6 +83,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.string,
 }
 
 export default SEO

@@ -31,7 +31,7 @@ class PageTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} heroImage={post.heroImage}>
-        <SEO title={post.title} />
+        <SEO title={post.title} url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>

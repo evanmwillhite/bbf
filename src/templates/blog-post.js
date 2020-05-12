@@ -11,11 +11,15 @@ import styles from '../components/pages/blog.module.css'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
-    console.log(this.props.location)
 
     return (
       <Layout location={this.props.location} heroImage={post.heroImage}>
-        <SEO title={post.title} />
+        <SEO
+          title={post.title}
+          url={this.props.location.href}
+          description={post.description.childMarkdownRemark.html}
+          image={post.heroImage.fixed}
+        />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
@@ -53,10 +57,18 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
+      description {
+        childMarkdownRemark {
+          html
+        }
+      }
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid_tracedSVG
+        }
+        fixed(height: 1080, width: 1080) {
+          ...GatsbyContentfulFixed
         }
       }
       body {

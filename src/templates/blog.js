@@ -19,7 +19,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Blog" />
+        <SEO title="Blog" url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
             <h1>Blog</h1>
