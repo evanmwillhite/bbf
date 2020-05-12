@@ -4,6 +4,7 @@ import get from 'lodash/get'
 
 import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
+import Share from '../components/molecules/share/share.js'
 
 class SermonPostTemplate extends React.Component {
   render() {
@@ -31,6 +32,10 @@ class SermonPostTemplate extends React.Component {
               dangerouslySetInnerHTML={{
                 __html: sermon.description.childMarkdownRemark.html,
               }}
+            />
+            <Share
+              page_url={this.props.location.href}
+              title={sermon.title}
             />
             <br />
             <Link className="button" to="/inspiration/sermons">Back to All Sermons</Link>

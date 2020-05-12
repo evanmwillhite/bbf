@@ -4,12 +4,14 @@ import get from 'lodash/get'
 
 import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
+import Share from '../components/molecules/share/share.js'
 
 import styles from '../components/pages/blog.module.css'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
+    console.log(this.props.location)
 
     return (
       <Layout location={this.props.location} heroImage={post.heroImage}>
@@ -31,6 +33,10 @@ class BlogPostTemplate extends React.Component {
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
               }}
+            />
+            <Share
+              page_url={this.props.location.href}
+              title={post.title}
             />
             <br />
             <Link className="button" to="/inspiration/blog">Back to Blog</Link>

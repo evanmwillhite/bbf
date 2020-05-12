@@ -22,7 +22,7 @@
 }
 
 .headerHome {
-  background-position: 0 0;
+  background-position: 0 53%;
   padding-bottom: 0;
 }
 
@@ -35,7 +35,7 @@
 
 @media only screen and (min-width: 700px) {
   .headerWrapper {
-    padding: 2rem;
+    padding: 2rem 2rem 2.5rem;
   }
 }
 
