@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
         <SEO
           title={post.title}
           url={this.props.location.href}
-          description={post.description.childMarkdownRemark.html}
+          description={post.description.childMarkdownRemark.excerpt}
           image={post.heroImage.fixed}
         />
         <div style={{ background: '#fff' }}>
@@ -59,7 +59,7 @@ export const pageQuery = graphql`
       title
       description {
         childMarkdownRemark {
-          html
+          excerpt(format: PLAIN)
         }
       }
       publishDate(formatString: "MMMM Do, YYYY")
