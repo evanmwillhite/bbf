@@ -6,6 +6,8 @@ import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
 import ArticlePreview from '../components/molecules/teasers/article'
 
+import styles from '../components/pages/blogs.module.css'
+
 class BlogIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
@@ -30,16 +32,18 @@ class BlogIndex extends React.Component {
                 )
               })}
             </ul>
-            {!isFirst && (
-              <Link to={prevPage} rel="prev">
-                ← Previous Page
-              </Link>
-            )}
-            {!isLast && (
-              <Link to={nextPage} rel="next">
-                Next Page →
-              </Link>
-            )}
+            <div className={styles.prevNext}>
+              {!isFirst && (
+                <Link to={prevPage} rel="prev">
+                  ← Previous Page
+                </Link>
+              )}
+              {!isLast && (
+                <Link to={nextPage} rel="next" className={styles.nextBlog}>
+                  Next Page →
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </Layout>
