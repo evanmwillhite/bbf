@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Layout from '../../components/layout'
-import SEO from '../../components/base/seo/seo'
-import SermonPreview from '../../components/molecules/teasers/sermon'
+import Layout from '../components/layout'
+import SEO from '../components/base/seo/seo'
+import SermonPreview from '../components/molecules/teasers/sermon'
 
 class SermonsIndex extends React.Component {
   render() {
@@ -34,13 +34,17 @@ class SermonsIndex extends React.Component {
 export default SermonsIndex
 
 export const pageQuery = graphql`
-  query SermonIndexQuery {
+  query SermonIndexQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
       }
     }
-    allContentfulSermon(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulSermon(
+      sort: { fields: [publishDate], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           title

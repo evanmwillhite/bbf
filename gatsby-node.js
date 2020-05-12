@@ -13,7 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allContentfulBlogPost {
+            allContentfulBlogPost(limit: 1000) {
               edges {
                 node {
                   title
@@ -37,7 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            allContentfulSermon {
+            allContentfulSermon(limit: 1000) {
               edges {
                 node {
                   title
@@ -55,12 +55,28 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Blogs
         const posts = result.data.allContentfulBlogPost.edges
+        // Posts
         posts.forEach((post) => {
           createPage({
             path: `/inspiration/blog/${post.node.slug}/`,
             component: blogPost,
             context: {
               slug: post.node.slug
+            },
+          })
+        })
+        // Blog Pagination Pages
+        const postsPerPage = 8
+        const numPages = Math.ceil(posts.length / postsPerPage)
+        Array.from({ length: numPages }).forEach((_, i) => {
+          createPage({
+            path: i === 0 ? `/inspiration/blog` : `/inspiration/blog/${i + 1}`,
+            component: path.resolve("./src/templates/blog.js"),
+            context: {
+              limit: postsPerPage,
+              skip: i * postsPerPage,
+              numPages,
+              currentPage: i + 1
             },
           })
         })
@@ -97,6 +113,21 @@ exports.createPages = ({ graphql, actions }) => {
             component: sermonLayout,
             context: {
               slug: sermon.node.slug
+            },
+          })
+        })
+        // Sermon Pagination Pages
+        const sermonsPerPage = 8
+        const numSermonPages = Math.ceil(posts.length / sermonsPerPage)
+        Array.from({ length: numSermonPages }).forEach((_, i) => {
+          createPage({
+            path: i === 0 ? `/inspiration/sermons` : `/inspiration/sermons/${i + 1}`,
+            component: path.resolve("./src/templates/sermons.js"),
+            context: {
+              limit: sermonsPerPage,
+              skip: i * sermonsPerPage,
+              numPages,
+              currentPage: i + 1
             },
           })
         })
