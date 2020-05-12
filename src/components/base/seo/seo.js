@@ -13,6 +13,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import favicon from '../../../img/favicon.png';
 
 function SEO({ description, lang, meta, title, url, image }) {
+  const { pathname } = useLocation()
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -22,6 +23,7 @@ function SEO({ description, lang, meta, title, url, image }) {
             description
             author
             defaultImage
+            url
           }
         }
       }
@@ -49,7 +51,7 @@ function SEO({ description, lang, meta, title, url, image }) {
         },
         {
           property: `og:url`,
-          content: url,
+          content: `${site.siteMetadata.url}${pathname}`,
         },
         {
           property: `og:description`,
