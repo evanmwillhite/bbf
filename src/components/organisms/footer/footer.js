@@ -16,7 +16,7 @@ export default () => (
           </a>
         </li>
         <li className={styles.footerListItem}>
-          <a className={styles.soundcloud} target="_blank" href="https://soundcloud.com/bbfellowship/sets/sermon-audio">
+          <a className={styles.soundcloud} target="_blank" href="https://soundcloud.com/bbfellowship/">
             <Soundcloud />
           </a>
         </li>
