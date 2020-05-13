@@ -33,7 +33,7 @@ class RootIndex extends React.Component {
                     key={node.slug}
                     title={node.title}
                     text={node.shortDescription}
-                    link={node.slug}
+                    link={`/${node.slug}`}
                     image={node.heroImage}
                   />
                 )

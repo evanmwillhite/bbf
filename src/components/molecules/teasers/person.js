@@ -8,7 +8,7 @@ export default ({ person }) => (
   <div className={styles.personPreview}>
     <div className={styles.image}>
       {person.shortBio !== null && 
-        <Link to={person.slug}>
+        <Link to={`/${person.slug}`}>
           <Img alt="" fluid={person.image.fluid} />
         </Link>
       }
@@ -18,7 +18,7 @@ export default ({ person }) => (
     </div>
     <h2 className={styles.previewTitle}>
     {person.shortBio !== null && 
-      <Link to={person.slug}>{person.name}</Link>
+      <Link to={`/${person.slug}`}>{person.name}</Link>
     }
     {person.shortBio == null && 
       <span>{person.name}</span>

@@ -29,10 +29,11 @@ module.exports = {
     author: `Evan Willhite`,
     description: `CBF Baptist Church serving Hendersonville, Tennessee (TN) and Sumner County`,
     defaultImage: `/bbf.png`,
-    url: "https://new.bbfellowship.com",
+    siteUrl: "https://new.bbfellowship.com",
   },
   pathPrefix: '/bbf',
   plugins: [
+    `gatsby-plugin-sitemap`,
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
@@ -48,6 +49,14 @@ module.exports = {
           include: /\.inline\.svg$/
         }
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "UA-12179527-3",
+        respectDNT: true,
+      },
     },
   ],
 }
