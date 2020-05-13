@@ -1,13 +1,22 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
+
 import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
 import SermonPreview from '../components/molecules/teasers/sermon'
 
+import styles from '../components/pages/blogs.module.css'
+
 class SermonsIndex extends React.Component {
   render() {
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
+    const { currentPage, numSermonPages } = this.props.pageContext
+    console.log(currentPage, numSermonPages)
+    const isFirst = currentPage === 1
+    const isLast = currentPage === numSermonPages
+    const prevPage = currentPage - 1 === 1 ? "inspiration/sermons/" : `inspiration/sermons/${(currentPage - 1).toString()}`
+    const nextPage = `inspiration/sermons/${(currentPage + 1).toString()}`
 
     return (
       <Layout location={this.props.location}>
@@ -24,6 +33,18 @@ class SermonsIndex extends React.Component {
                 )
               })}
             </ul>
+            <div className={styles.prevNext}>
+              {!isFirst && (
+                <Link to={prevPage} rel="prev">
+                  ← Previous Page
+                </Link>
+              )}
+              {!isLast && (
+                <Link to={nextPage} rel="next" className={styles.nextBlog}>
+                  Next Page →
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </Layout>

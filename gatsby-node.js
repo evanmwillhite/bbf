@@ -118,7 +118,7 @@ exports.createPages = ({ graphql, actions }) => {
         })
         // Sermon Pagination Pages
         const sermonsPerPage = 8
-        const numSermonPages = Math.ceil(posts.length / sermonsPerPage)
+        const numSermonPages = Math.ceil(sermons.length / sermonsPerPage)
         Array.from({ length: numSermonPages }).forEach((_, i) => {
           createPage({
             path: i === 0 ? `/inspiration/sermons` : `/inspiration/sermons/${i + 1}`,
@@ -126,7 +126,7 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               limit: sermonsPerPage,
               skip: i * sermonsPerPage,
-              numPages,
+              numSermonPages,
               currentPage: i + 1
             },
           })
