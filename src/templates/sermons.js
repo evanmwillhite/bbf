@@ -12,7 +12,6 @@ class SermonsIndex extends React.Component {
   render() {
     const sermons = get(this, 'props.data.allContentfulSermon.edges')
     const { currentPage, numSermonPages } = this.props.pageContext
-    console.log(currentPage, numSermonPages)
     const isFirst = currentPage === 1
     const isLast = currentPage === numSermonPages
     const prevPage = currentPage - 1 === 1 ? "inspiration/sermons/" : `inspiration/sermons/${(currentPage - 1).toString()}`
