@@ -181,6 +181,16 @@ blockquote {
     width: 100%;
 }
 
+/* Highlighted Content */
+.highlighted {
+  background-color: #eee;
+  padding: 1.5rem;
+}
+
+.highlighted--warning {
+  background-color: #f9dfdf;
+}
+
 /**
  * lists
  */
