@@ -70,6 +70,9 @@ function SEO({ description, lang, meta, title, image }) {
     >
       <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300&display=swap" rel="stylesheet" />
       <link rel="icon" href={favicon} type="image/x-icon" />
+      <link rel="preconnect" href="https://widget.sndcdn.com"></link>
+      <link rel="preconnect" href="https://wave.sndcdn.com"></link>
+      <link rel="preconnect" href="https://i1.sndcdn.com"></link>
     </Helmet>
   )
 }
