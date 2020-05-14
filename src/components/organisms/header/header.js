@@ -36,7 +36,7 @@ export default function Header ({ data, image, isHome }) {
       `}
       render={data => (
         <header className={headerClasses}>
-          {isHome && 
+          {!image && 
             <div className={styles.heroImage}>
               <Img
                 alt=""
