@@ -4,29 +4,22 @@ import get from 'lodash/get'
 
 import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
-import TeaserList from '../components/organisms/teaserList/teaserList'
-import SermonPreview from '../components/molecules/teasers/sermon'
-import ArticlePreview from '../components/molecules/teasers/article'
-import PersonPreview from '../components/molecules/teasers/person'
+import Inspiration from '../components/pages/inspiration/inspiration'
+import StaffList from '../components/organisms/staffList/staffList'
 import CardGrid from '../components/organisms/cardGrid/cardGrid'
 import Card from '../components/molecules/card/card'
-
-import styles from '../components/pages/staff.module.css'
 
 class PageTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulPage')
-    const sermons = get(this, 'props.data.allContentfulSermon.edges')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const persons = get(this, 'props.data.allContentfulPerson.edges')
-    let pageTitle
+    let page
 
-    if (this.props.location.pathname === '/inspiration/' || this.props.location.pathname === '/inspiration') {
-      pageTitle = 'Inspiration'
+    if (this.props.data.contentfulPage.title === 'Inspiration') {
+      page = 'inspirationPage'
     }
 
-    if (this.props.location.pathname === '/about/leadership/' || this.props.location.pathname === '/about/leadership') {
-      pageTitle = 'Leadership'
+    if (this.props.data.contentfulPage.title === 'Leadership') {
+      page = 'leadershipPage'
     }
 
     return (
@@ -41,42 +34,11 @@ class PageTemplate extends React.Component {
                 __html: post.body.childMarkdownRemark.html,
               }}
             />
-            {pageTitle === 'Inspiration' && 
-              <div>
-                <TeaserList
-                  title="Recent Sermons"
-                  link="/inspiration/sermons/"
-                  linkText="All Sermons"
-                >
-                  {sermons.map(({ node }) => {
-                    return (
-                      <SermonPreview sermon={node} key={node.id} />
-                    )
-                  })}
-                </TeaserList>
-                <TeaserList
-                  title="Recent Blog"
-                  link="/inspiration/blog/"
-                  linkText="All Posts"
-                >
-                  {posts.map(({ node }) => {
-                    return (
-                      <ArticlePreview article={node} key={node.id} />
-                    )
-                  })}
-                </TeaserList>
-              </div>
+            {page === 'inspirationPage' && 
+              <Inspiration />
             }
-            {pageTitle === 'Leadership' && 
-              <ul className={styles.staffList}>
-                {persons.map(({ node }) => {
-                  return (
-                    <li className={styles.staffItem} key={node.slug}>
-                      <PersonPreview person={node} />
-                    </li>
-                  )
-                })}
-              </ul>
+            {page === 'leadershipPage' && 
+              <StaffList />
             }
             {post.featuredPages &&
               <CardGrid>
@@ -124,73 +86,6 @@ export const pageQuery = graphql`
         heroImage {
           fluid(maxWidth: 450, maxHeight: 450, resizingBehavior: THUMB) {
             ...GatsbyContentfulFluid_withWebp
-          }
-        }
-      }
-    }
-    allContentfulSermon(limit: 3, sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-          scripture
-          scriptureLink
-          embed {
-            content {
-              content {
-                value
-              }
-            }
-          }
-        }
-      }
-    }
-    allContentfulBlogPost(limit: 3, sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          author {
-            name
-            slug
-          }
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    allContentfulPerson(sort: {fields: sortOrder}) {
-      edges {
-        node {
-          name
-          slug
-          title
-          shortDescription
-          shortBio {
-            childMarkdownRemark {
-              html
-            }
-          }
-          image {
-            fluid(maxWidth: 500, maxHeight: 600) {
-              ...GatsbyContentfulFluid_withWebp
-            }
           }
         }
       }
