@@ -53,7 +53,7 @@ export const pageQuery = graphql`
       shortDescription
       image {
         fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       shortBio {

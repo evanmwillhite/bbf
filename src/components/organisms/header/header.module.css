@@ -3,11 +3,6 @@
   position: relative;
 }
 
-.headerImage {
-  background: url(../../../img/bible.jpg) no-repeat scroll 80% 48%;
-  background-size: cover;
-}
-
 .heroImage {
   height: 100%;
   left: 0;

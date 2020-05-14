@@ -1,3 +1,5 @@
+const path = require(`path`)
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -38,6 +40,13 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `img`),
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,

@@ -109,7 +109,7 @@ export const pageQuery = graphql`
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       body {
@@ -123,7 +123,7 @@ export const pageQuery = graphql`
         shortDescription
         heroImage {
           fluid(maxWidth: 450, maxHeight: 450, resizingBehavior: THUMB) {
-            ...GatsbyContentfulFluid
+            ...GatsbyContentfulFluid_withWebp
           }
         }
       }
@@ -164,7 +164,7 @@ export const pageQuery = graphql`
           }
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_withWebp
             }
           }
           description {
@@ -189,7 +189,7 @@ export const pageQuery = graphql`
           }
           image {
             fluid(maxWidth: 500, maxHeight: 600) {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
