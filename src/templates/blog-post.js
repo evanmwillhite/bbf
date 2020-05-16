@@ -18,7 +18,7 @@ class BlogPostTemplate extends React.Component {
           title={post.title}
           url={this.props.location.href}
           description={post.description.childMarkdownRemark.excerpt}
-          image={post.heroImage.fixed}
+          image={post.heroImage.file.url}
         />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
@@ -67,8 +67,8 @@ export const pageQuery = graphql`
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid_withWebp
         }
-        fixed(height: 1080, width: 1080) {
-          ...GatsbyContentfulFixed
+        file {
+          url
         }
       }
       body {
