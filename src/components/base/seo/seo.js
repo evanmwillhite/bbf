@@ -73,6 +73,7 @@ function SEO({ description, lang, meta, title, image }) {
       <link rel="preconnect" href="https://widget.sndcdn.com"></link>
       <link rel="preconnect" href="https://wave.sndcdn.com"></link>
       <link rel="preconnect" href="https://i1.sndcdn.com"></link>
+      <link rel="preconnect" href="https://www.google-analytics.com"></link>
     </Helmet>
   )
 }
