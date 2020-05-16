@@ -11,11 +11,7 @@ import styles from '../components/pages/blog.module.css'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
-    let pageUrl = this.props.location.href
-
-    if (typeof window !== 'undefined') {
-      pageUrl = window.location.href
-    }
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : this.props.location.href;
 
     return (
       <Layout location={this.props.location} heroImage={post.heroImage}>
@@ -44,7 +40,7 @@ class BlogPostTemplate extends React.Component {
               }}
             />
             <Share
-              page_url={pageUrl}
+              page_url={currentUrl}
               title={post.title}
             />
             <br />
