@@ -11,7 +11,8 @@ import styles from '../components/pages/blog.module.css'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
-    const currentUrl = typeof window !== 'undefined' ? window.location.href : this.props.location.href;
+    const siteUrl = get(this.props, 'data.site.siteMetadata.siteUrl')
+    const currentUrl =  `${siteUrl}${this.props.location.pathname}`
 
     return (
       <Layout location={this.props.location} heroImage={post.heroImage}>
@@ -56,6 +57,11 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       description {
