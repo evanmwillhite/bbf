@@ -18,7 +18,7 @@ class BlogPostTemplate extends React.Component {
           title={post.title}
           url={this.props.location.href}
           description={post.description.childMarkdownRemark.excerpt}
-          image={post.heroImage.file.url}
+          imageUrl={post.heroImage.file.url}
         />
         <div style={{ background: '#fff' }}>
           <div className="wrapper">
