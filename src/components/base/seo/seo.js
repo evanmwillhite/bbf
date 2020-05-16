@@ -32,7 +32,7 @@ function SEO({ description, lang, meta, title, image }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = image || site.siteMetadata.defaultImage
+  const ogImage = image || `${site.siteMetadata.siteUrl}${site.siteMetadata.defaultImage}`
   console.log(image)
 
   return (
@@ -65,7 +65,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           property: `og:image`,
-          content: `${site.siteMetadata.siteUrl}${ogImage}`,
+          content: ogImage,
         },
         {
           property: `og:image:width`,
