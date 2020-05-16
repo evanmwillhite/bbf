@@ -64,7 +64,15 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           property: `og:image`,
-          content: `${site.siteMetadata.url}${ogImage}`,
+          content: `${site.siteMetadata.siteUrl}${ogImage}`,
+        },
+        {
+          property: `og:image:width`,
+          content: `1200`,
+        },
+        {
+          property: `og:image:height`,
+          content: `630`,
         },
       ].concat(meta)}
     >
