@@ -32,7 +32,7 @@ function SEO({ description, lang, meta, title, imageUrl }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const ogImage = `https:${imageUrl}` || `${site.siteMetadata.siteUrl}${site.siteMetadata.defaultImage}`
+  const ogImage = imageUrl ? `https:${imageUrl}` : `${site.siteMetadata.siteUrl}${site.siteMetadata.defaultImage}`
 
   return (
     <Helmet
