@@ -31,7 +31,7 @@ module.exports = {
     author: `Evan Willhite`,
     description: `CBF Baptist Church serving Hendersonville, Tennessee (TN) and Sumner County`,
     defaultImage: `/bbf.png`,
-    siteUrl: "https://new.bbfellowship.com",
+    siteUrl: "https://bbfellowship.com",
   },
   pathPrefix: '/bbf',
   plugins: [
