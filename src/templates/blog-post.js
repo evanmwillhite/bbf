@@ -39,7 +39,7 @@ class BlogPostTemplate extends React.Component {
               }}
             />
             <Share
-              page_url={this.props.location.href}
+              page_url={window.location.href}
               title={post.title}
             />
             <br />
