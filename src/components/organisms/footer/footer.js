@@ -11,17 +11,17 @@ export default () => (
     <div className={styles.footerWrap + ' wrapper'}>
       <ul className={styles.footerMenu}>
         <li className={styles.footerListItem}>
-          <a className={styles.facebook} target="_blank" href="https://www.facebook.com/believersbaptistfellowship/">
+          <a className={styles.facebook} target="_blank" href="https://www.facebook.com/believersbaptistfellowship/" rel="noopener">
           <Facebook />
           </a>
         </li>
         <li className={styles.footerListItem}>
-          <a className={styles.soundcloud} target="_blank" href="https://soundcloud.com/bbfellowship/">
+          <a className={styles.soundcloud} target="_blank" href="https://soundcloud.com/bbfellowship/" rel="noopener">
             <Soundcloud />
           </a>
         </li>
         <li className={styles.footerListItem}>
-          <a className={styles.youtube} target="_blank" href="https://www.youtube.com/channel/UCtTKQNSRCLyrKO6y9PliADQ">
+          <a className={styles.youtube} target="_blank" href="https://www.youtube.com/channel/UCtTKQNSRCLyrKO6y9PliADQ" rel="noopener">
             <YouTube />
           </a>
         </li>
