@@ -118,6 +118,8 @@ export const pageQuery = graphql`
               }
             }
           }
+          scripture
+          scriptureLink
         }
       }
     }
