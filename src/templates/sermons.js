@@ -21,9 +21,15 @@ class SermonsIndex extends React.Component {
       <Layout location={this.props.location}>
         <SEO title="Sermons" url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
-          <div className="wrapper">
+          <div className="wrapper wrapper-relative">
             <h1>Sermons</h1>
-            <ul className="list-reset">
+            <ul className="list-reset list-relative">
+              <a
+                className={styles.sermonsLink}
+                href="https://www.youtube.com/channel/UCtTKQNSRCLyrKO6y9PliADQ"
+                target="_blank"
+                rel="noopener"
+              >Previous Sermons on YouTube</a>
               {sermons.map(({ node }) => {
                 return (
                   <li key={node.slug}>
