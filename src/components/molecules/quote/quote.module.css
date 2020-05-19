@@ -6,13 +6,13 @@
 
 @media only screen and (min-width: 700px) {
   .quoteWrap {
-    padding: 1.25rem 2rem;
+    padding: 0.5rem 2rem;
   }
 }
 
 .quote {
   border: none;
-  font: italic 1.3rem 'Lora', serif;
+  font: italic 1rem 'Lora', serif;
   line-height: 1.6;
   max-width: 780px;
   margin: 0 auto;
@@ -22,15 +22,17 @@
 @media only screen and (min-width: 700px) {
   .quote {
     border-left: 2px solid #eee;
-    padding-left: 2rem;
+    font-size: 1.1rem;
+    padding-left: 1.8rem;
   }
 }
 
 .quoteText {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 .cite {
   font-style: normal;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }

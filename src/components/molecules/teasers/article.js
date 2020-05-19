@@ -18,16 +18,19 @@ export default ({ article }) => (
         <small>{article.publishDate}</small>
       </h4>
       <div
+        className={styles.description}
         dangerouslySetInnerHTML={{
           __html: article.description.childMarkdownRemark.html,
         }}
       />
-      {article.tags &&
-        article.tags.map(tag => (
-          <p className={styles.tag} key={tag}>
-            {tag}
-          </p>
-        ))}
+      <div className={styles.tags}>
+        {article.tags &&
+          article.tags.map(tag => (
+            <span className={styles.tag} key={tag}>
+              {tag}
+            </span>
+          ))}
+      </div>
     </div>
   </div>
 )

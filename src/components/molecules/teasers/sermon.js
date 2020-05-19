@@ -9,7 +9,7 @@ export default ({ sermon }) => (
       <h3 className={styles.previewTitle}>
         <Link to={`/inspiration/sermons/${sermon.slug}`}>{sermon.title}</Link>
       </h3>
-      <small>{sermon.publishDate}</small>
+      <small className={styles.postDate}>{sermon.publishDate}</small>
       <h4 className={styles.scripture}>
         <a target="_blank" href={sermon.scriptureLink}>{sermon.scripture}</a>
       </h4>

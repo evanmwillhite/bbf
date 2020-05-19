@@ -1,9 +1,13 @@
 .previewTitle {
-  font-size: 1.8rem;
-  margin: 0.75rem 0;
+  font-size: 1.5rem;
+  margin: 0.55rem 0;
 }
 
 .previewSubTitle {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   margin: 0;
+}
+
+.previewDescription {
+  font-size: 0.9rem;
 }

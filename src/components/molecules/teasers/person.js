@@ -27,7 +27,7 @@ export default ({ person }) => (
     <h3 className={styles.previewSubTitle}>
       {person.title}
     </h3>
-    <p>
+    <p className={styles.previewDescription}>
       {person.shortDescription}
     </p>
   </div>

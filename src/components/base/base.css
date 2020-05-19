@@ -1,9 +1,12 @@
-body {
+html {
   font-family: 'Poppins', sans-serif;
-  font-size: 1em;
+  font-size: 20px;
   line-height: 1.65;
-  color: #373F49;
+}
+
+body {
   background: #fff;
+  color: #373F49;
   margin: 0;
 }
 
@@ -17,23 +20,23 @@ h2,
 h3,
 h4,
 h5 {
-  font: normal 3rem 'Lora', serif;
+  font: normal 2.5rem 'Lora', serif;
 }
 
 h2 {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
 }
 
 h3 {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 h4 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 @media only screen and (min-width: 700px) {
@@ -42,11 +45,11 @@ h5 {
   h3,
   h4,
   h5 {
-    font: normal 3.5rem 'Lora', serif;
+    font: normal 2.8rem 'Lora', serif;
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   h3 {
@@ -54,7 +57,7 @@ h5 {
   }
 
   h4 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   h5 {
@@ -69,23 +72,23 @@ h5 {
   h3,
   h4,
   h5 {
-    font: normal 4rem 'Lora', serif;
+    font: normal 3.5rem 'Lora', serif;
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   h4 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   h5 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   
 }
@@ -111,7 +114,8 @@ blockquote {
   background-color: #c79288;
   color: #fff;
   display: inline-block;
-  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  padding: 0.75rem 1.2rem;
   text-align: center;
   text-decoration: none;
 }
@@ -119,7 +123,7 @@ blockquote {
 .button-center {
   display: block;
   margin: 0 auto;
-  max-width: 100px;
+  max-width: 115px;
 }
 
 .button:hover {
@@ -130,11 +134,11 @@ blockquote {
 .wrapper {
   margin: 0 auto;
   max-width: 1024px;
-  padding: 2rem 1.5rem;
+  padding: 1.8rem 1.3rem;
 }
 
 .wrapper-home {
-  padding-top: 1rem;
+  padding-top: 0.8rem;
 }
 
 @media only screen and (min-width: 900px) {
