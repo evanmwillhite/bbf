@@ -212,3 +212,22 @@ blockquote {
   margin: 0 0 5vmin 0;
   border-bottom: 1px solid #ddd;
 }
+
+/**
+ * Video
+ */
+.video-wrapper {
+  height: 0;
+  overflow: hidden;
+  padding-top: 35px;
+  padding-bottom: 56.25%; /* 56.25% = 16x9 */
+  position: relative;
+}
+
+.video-wrapper iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
