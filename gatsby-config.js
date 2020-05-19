@@ -7,6 +7,7 @@ require('dotenv').config({
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  host: process.env.CONTENTFUL_HOST || 'cdn.contentful.com',
 }
 
 // if you want to use the preview API please define
@@ -17,7 +18,7 @@ if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.host = process.env.CONTENTFUL_HOST
 }
 
-const { spaceId, accessToken } = contentfulConfig
+const { spaceId, accessToken, host } = contentfulConfig
 
 if (!spaceId || !accessToken) {
   throw new Error(
