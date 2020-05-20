@@ -137,6 +137,10 @@ blockquote {
   padding: 1.8rem 1.3rem;
 }
 
+.wrapper-relative {
+  position: relative;
+}
+
 .wrapper-home {
   padding-top: 0.8rem;
 }

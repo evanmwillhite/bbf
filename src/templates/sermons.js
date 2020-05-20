@@ -6,6 +6,8 @@ import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
 import SermonPreview from '../components/molecules/teasers/sermon'
 
+import Podcast from '../img/podcast.inline.svg';
+
 import styles from '../components/pages/blogs.module.css'
 
 class SermonsIndex extends React.Component {
@@ -23,13 +25,24 @@ class SermonsIndex extends React.Component {
         <div style={{ background: '#fff' }}>
           <div className="wrapper wrapper-relative">
             <h1>Sermons</h1>
-            <ul className="list-reset list-relative">
+            <a
+              className={styles.sermonsLink}
+              href="https://www.youtube.com/channel/UCtTKQNSRCLyrKO6y9PliADQ"
+              target="_blank"
+              rel="noopener"
+            >Previous Sermons on YouTube</a>
+            <div className={styles.podcastLink}>
               <a
-                className={styles.sermonsLink}
-                href="https://www.youtube.com/channel/UCtTKQNSRCLyrKO6y9PliADQ"
+                className="button"
+                href="https://podcasts.apple.com/us/podcast/believers-baptist-fellowship-church-in-hendersonville-tn/id1513060466"
                 target="_blank"
                 rel="noopener"
-              >Previous Sermons on YouTube</a>
+              >
+                <Podcast />
+                <span>Subscribe to Sermon Podcast</span>
+              </a>
+            </div>
+            <ul className="list-reset list-relative">
               {sermons.map(({ node }) => {
                 return (
                   <li key={node.slug}>
