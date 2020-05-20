@@ -18,23 +18,27 @@ class BlogPostTemplate extends React.Component {
         <div style={{ background: '#fff' }}>
           <div className={styles.person + " wrapper"}>
             <h1 className="section-headline">{person.name}</h1>
-            <div className={styles.personImage}>
-              <Img alt="" fluid={person.image.fluid} />
-            </div>
-            <div className="content-wrapper">
-              <h2 className={styles.personTitle}>
-                {person.title}
-              </h2>
-              <h3 className={styles.personSubTitle}>
-                {person.shortDescription}
-              </h3>
-              {person.shortBio !== null &&
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: person.shortBio.childMarkdownRemark.html,
-                  }}
-                />
-              }
+            <div className={styles.personContent}>
+              <div className={styles.personImage}>
+                <Img alt="" fluid={person.image.fluid} />
+              </div>
+              <div className={styles.personCopyWrapper}>
+                <h2 className={styles.personTitle}>
+                  {person.title}
+                </h2>
+                {person.shortDescription &&
+                  <h3 className={styles.personSubTitle}>
+                    {person.shortDescription}
+                  </h3>
+                }
+                {person.shortBio !== null &&
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: person.shortBio.childMarkdownRemark.html,
+                    }}
+                  />
+                }
+              </div>
             </div>
           </div>
         </div>

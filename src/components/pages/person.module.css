@@ -3,17 +3,33 @@
 }
 
 @media only screen and (min-width: 700px) {
-  .personImage {
-    float: left;
-    margin-right: 2rem;
-    width: 40%;
+  .personContent {
+    display: flex;
   }
-  
+
+  .personImage {
+    margin-right: 2rem;
+    width: 42%;
+  }
+
+  .personCopyWrapper {
+    width: 58%;
+  }
+}
+
+.personCopyWrapper {
+  margin-bottom: 2rem;
 }
 
 .personTitle {
   font-size: 1.5rem;
   margin-bottom: 0;
+}
+
+@media only screen and (min-width: 700px) {
+  .personTitle {
+    margin-top: 0;
+  }
 }
 
 .personSubTitle {
