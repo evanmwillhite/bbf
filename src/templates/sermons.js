@@ -16,8 +16,8 @@ class SermonsIndex extends React.Component {
     const { currentPage, numSermonPages } = this.props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numSermonPages
-    const prevPage = currentPage - 1 === 1 ? "inspiration/sermons/" : `inspiration/sermons/${(currentPage - 1).toString()}`
-    const nextPage = `inspiration/sermons/${(currentPage + 1).toString()}`
+    const prevPage = currentPage - 1 === 1 ? "/inspiration/sermons/" : `/inspiration/sermons/${(currentPage - 1).toString()}`
+    const nextPage = `/inspiration/sermons/${(currentPage + 1).toString()}`
 
     return (
       <Layout location={this.props.location}>
