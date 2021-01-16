@@ -112,11 +112,7 @@ export const pageQuery = graphql`
             }
           }
           embed {
-            content {
-              content {
-                value
-              }
-            }
+            raw
           }
           scripture
           scriptureLink

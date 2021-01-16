@@ -17,7 +17,7 @@ export default ({ sermon }) => (
     <div
       className={styles.audio}
       dangerouslySetInnerHTML={{
-        __html: sermon.embed.content[0].content[0].value,
+        __html: sermon.embed.raw,
       }}
     />
   </div>

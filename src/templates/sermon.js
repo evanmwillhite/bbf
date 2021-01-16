@@ -2,6 +2,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 
+import { INLINES } from '@contentful/rich-text-types';
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
 import Share from '../components/molecules/share/share.js'
@@ -9,6 +11,20 @@ import Share from '../components/molecules/share/share.js'
 class SermonPostTemplate extends React.Component {
   render() {
     const sermon = get(this.props, 'data.contentfulSermon')
+    const embed = sermon.embed
+    const options = {
+      renderNode: {
+        [INLINES.EMBEDDED_ENTRY]: node => {
+          return (
+            <>
+              <pre>
+                <code>{JSON.stringify(node, null, 2)}</code>
+              </pre>
+            </>
+          )
+        },
+      },
+    };
 
     return (
       <Layout location={this.props.location}>
@@ -23,11 +39,7 @@ class SermonPostTemplate extends React.Component {
             >
               {sermon.publishDate} | <a target="_blank" href={sermon.scriptureLink}>{sermon.scripture}</a>{sermon.pdf && ` | ${<a target="_blank" href={sermon.pdf}>PDF</a>}`}
             </p>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: sermon.embed.content[0].content[0].value,
-              }}
-            />
+              {embed && renderRichText(embed, options)}
             <div
               dangerouslySetInnerHTML={{
                 __html: sermon.description.childMarkdownRemark.html,
@@ -61,11 +73,7 @@ export const pageQuery = graphql`
       scripture
       scriptureLink
       embed {
-        content {
-          content {
-            value
-          }
-        }
+        raw
       }
     }
   }
