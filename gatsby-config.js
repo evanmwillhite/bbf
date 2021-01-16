@@ -28,9 +28,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Believers Baptist Fellowship - Church Serving Hendersonville and Sumner County',
+    title: 'Believers Baptist Fellowship Church serving Hendersonville, Tennessee',
     author: `Evan Willhite`,
-    description: `CBF Baptist Church serving Hendersonville, Tennessee (TN) and Sumner County`,
+    description: `Believers Baptist Fellowship is a tight-knit and welcoming church in Hendersonville, Tennessee. Through weekly worship and study, we strive to love God and to love our neighbors in Hendersonville, Gallatin, Sumner County and the surrounding Nashville, Tennessee area.`,
     defaultImage: `/bbf.png`,
     siteUrl: "https://bbfellowship.com",
   },
