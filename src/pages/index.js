@@ -22,8 +22,7 @@ class RootIndex extends React.Component {
         <SEO title="Home" url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
           <Quote
-            text="The home we long for and belong to is finally where Christ is. I believe that home is Christ's kingdom, which exists both within us and among us as we wend our prodigal ways through the world in search of it."
-            cite="—Frederick Buechner"
+            text="Believers Baptist Fellowship is a tight-knit and welcoming church in Hendersonville, Tennessee. Through weekly worship and study, we strive to love God and to love our neighbors in Sumner County and the surrounding areas."
           />
           <div className="wrapper wrapper-home">
             <CardGrid>
