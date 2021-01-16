@@ -25,11 +25,7 @@ export default function Inspiration () {
                 scripture
                 scriptureLink
                 embed {
-                  content {
-                    content {
-                      value
-                    }
-                  }
+                  raw
                 }
               }
             }

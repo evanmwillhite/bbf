@@ -97,11 +97,7 @@ export const pageQuery = graphql`
           scripture
           scriptureLink
           embed {
-            content {
-              content {
-                value
-              }
-            }
+            raw
           }
         }
       }

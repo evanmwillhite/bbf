@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
 import Share from '../components/molecules/share/share.js'
@@ -9,6 +10,7 @@ import Share from '../components/molecules/share/share.js'
 class SermonPostTemplate extends React.Component {
   render() {
     const sermon = get(this.props, 'data.contentfulSermon')
+    const embed = renderRichText(sermon.embed)
 
     return (
       <Layout location={this.props.location}>
@@ -25,7 +27,7 @@ class SermonPostTemplate extends React.Component {
             </p>
             <div
               dangerouslySetInnerHTML={{
-                __html: sermon.embed.content[0].content[0].value,
+                __html: embed[0].props.children,
               }}
             />
             <div
@@ -61,11 +63,7 @@ export const pageQuery = graphql`
       scripture
       scriptureLink
       embed {
-        content {
-          content {
-            value
-          }
-        }
+        raw
       }
     }
   }
