@@ -3,12 +3,16 @@
   margin-bottom: 2rem;
 }
 
-@media only screen and (min-width: 600px) {
+.sermonsTop {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 800px) {
   .sermonsLink {
     font-size: 0.9rem;
     margin-bottom: 0;
     position: absolute;
-    right: 0;
+    right: 4%;
     top: 115px;
   }
 }

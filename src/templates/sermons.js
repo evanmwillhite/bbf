@@ -24,24 +24,14 @@ class SermonsIndex extends React.Component {
         <SEO title="Sermons" url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
           <div className="wrapper wrapper-relative">
-            <h1>Sermons</h1>
+            <h1>Sermon</h1>
             <a
               className={styles.sermonsLink}
               href="https://www.youtube.com/channel/UCtTKQNSRCLyrKO6y9PliADQ"
               target="_blank"
               rel="noopener"
-            >Previous Sermons on YouTube</a>
-            <div className={styles.podcastLink}>
-              <a
-                className="button"
-                href="https://podcasts.apple.com/us/podcast/believers-baptist-fellowship-church-in-hendersonville-tn/id1513060466"
-                target="_blank"
-                rel="noopener"
-              >
-                <Podcast />
-                <span>Subscribe to Sermon Podcast</span>
-              </a>
-            </div>
+            >Sermons on YouTube from Tim Rayborn, Pastor Emeritus</a>
+            <p className={styles.sermonsTop}>Below are a sampling of sermons. If you would like a recording of another sermon, contact <a href="mailto:akowillhite@gmail.com">Pastor Amanda</a>.</p>
             <ul className="list-reset list-relative">
               {sermons.map(({ node }) => {
                 return (

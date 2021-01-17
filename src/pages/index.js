@@ -14,7 +14,6 @@ import TeaserList from '../components/organisms/teaserList/teaserList'
 class RootIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const sermons = get(this, 'props.data.allContentfulSermon.edges')
     const pages = get(this, 'props.data.allContentfulPage.edges')
 
     return (
@@ -38,19 +37,6 @@ class RootIndex extends React.Component {
                 )
               })}
             </CardGrid>
-            <TeaserList
-              title="Recent sermon"
-              link="/inspiration/sermons/"
-              linkText="All Sermons"
-            >
-              {sermons.map(({ node }) => {
-                return (
-                  <article key={node.slug}>
-                    <SermonPreview sermon={node} />
-                  </article>
-                )
-              })}
-            </TeaserList>
             <TeaserList
               title="Recent blog"
               link="/inspiration/blog/"
@@ -94,48 +80,6 @@ export const pageQuery = graphql`
           description {
             childMarkdownRemark {
               html
-            }
-          }
-        }
-      }
-    }
-    allContentfulSermon(limit: 1, sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-          embed {
-            raw
-          }
-          scripture
-          scriptureLink
-        }
-      }
-    }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
