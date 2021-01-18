@@ -24,7 +24,7 @@ class SermonsIndex extends React.Component {
         <SEO title="Sermons" url={this.props.location.href} />
         <div style={{ background: '#fff' }}>
           <div className="wrapper wrapper-relative">
-            <h1>Sermon</h1>
+            <h1>Sermons</h1>
             <a
               className={styles.sermonsLink}
               href="https://www.youtube.com/channel/UCtTKQNSRCLyrKO6y9PliADQ"

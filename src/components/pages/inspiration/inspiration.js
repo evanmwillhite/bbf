@@ -60,17 +60,6 @@ export default function Inspiration () {
       render={data => (
         <div>
           <TeaserList
-            title="Recent Sermons"
-            link="/inspiration/sermons/"
-            linkText="All Sermons"
-          >
-            {data.allContentfulSermon.edges.map(({ node }) => {
-              return (
-                <SermonPreview sermon={node} key={node.id} />
-              )
-            })}
-          </TeaserList>
-          <TeaserList
             title="Recent Blog"
             link="/inspiration/blog/"
             linkText="All Posts"
@@ -78,6 +67,17 @@ export default function Inspiration () {
             {data.allContentfulBlogPost.edges.map(({ node }) => {
               return (
                 <ArticlePreview article={node} key={node.id} />
+              )
+            })}
+          </TeaserList>
+          <TeaserList
+            title="Sermons"
+            link="/inspiration/sermons/"
+            linkText="All Sermons"
+          >
+            {data.allContentfulSermon.edges.map(({ node }) => {
+              return (
+                <SermonPreview sermon={node} key={node.id} />
               )
             })}
           </TeaserList>
