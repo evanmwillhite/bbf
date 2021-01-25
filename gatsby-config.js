@@ -61,11 +61,20 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
         // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-12179527-3",
-        respectDNT: true,
+        trackingIds: [
+          "259992417",
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+        },
       },
     },
   ],
