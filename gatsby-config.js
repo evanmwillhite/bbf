@@ -65,7 +65,7 @@ module.exports = {
       options: {
         // The property ID; the tracking code won't be generated without it
         trackingIds: [
-          "259992417",
+          "G-WFYKNHPP9L",
         ],
         gtagConfig: {
           anonymize_ip: true,
