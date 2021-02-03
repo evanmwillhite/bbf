@@ -21,7 +21,7 @@ export default () => (
           </a>
         </li>
       </ul>
-      <p><span>Copyright © 2020 Believers Baptist Fellowship - All Rights Reserved.</span><span><a href="tel:+1-615-517-8800">(615) 517-8800</a></span><span><a href="mailto:akowillhite@gmail.com">akowillhite@gmail.com</a></span></p>
+      <p><span>Copyright © {(new Date().getFullYear())} Believers Baptist Fellowship - All Rights Reserved.</span><span><a href="tel:+1-615-517-8800">(615) 517-8800</a></span><span><a href="mailto:akowillhite@gmail.com">akowillhite@gmail.com</a></span></p>
     </div>
   </footer>
 )
