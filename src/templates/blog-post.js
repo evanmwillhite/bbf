@@ -26,7 +26,7 @@ class BlogPostTemplate extends React.Component {
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <div className={styles.meta}>
-              <span>by:&nbsp;</span><Link to={post.author.slug}>{post.author.name}</Link>
+              <span>by:&nbsp;</span><Link to={`/${post.author.slug}`}>{post.author.name}</Link>
               <p
                 style={{
                   display: 'block',
