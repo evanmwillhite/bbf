@@ -26,18 +26,18 @@
   padding: 0;
 }
 
-.footer span {
+.copyright {
   display: block;
   margin-bottom: 0.4rem;
 }
 
 @media only screen and (min-width: 940px) {
-  .footer span {
+  .copyright {
     display: inline;
     margin-bottom: 0;
   }
 
-  .footer span:not(:last-child)::after {
+  .copyright:not(:last-child)::after {
     content: "|";
     margin: 0 0.4rem;
   }
@@ -62,4 +62,14 @@
   position: relative;
   top: 2px;
   width: 37px;
+}
+
+.address {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.address span {
+  display: block;
+  font-style: normal;
 }
