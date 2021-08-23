@@ -5,18 +5,17 @@ import PersonPreview from '../../molecules/teasers/person'
 
 import styles from './staffList.module.css'
 
-export default function staffList () {
+export default function staffList() {
   return (
     <StaticQuery
       query={graphql`
         query StaffListQuery {
-          allContentfulPerson(sort: {fields: sortOrder}) {
+          allContentfulPerson(sort: { fields: sortOrder }) {
             edges {
               node {
                 name
                 slug
                 title
-                shortDescription
                 shortBio {
                   childMarkdownRemark {
                     html
@@ -32,7 +31,7 @@ export default function staffList () {
           }
         }
       `}
-      render={data => (
+      render={(data) => (
         <ul className={styles.staffList}>
           {data.allContentfulPerson.edges.map(({ node }) => {
             return (

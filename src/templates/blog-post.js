@@ -12,7 +12,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
     const siteUrl = get(this.props, 'data.site.siteMetadata.siteUrl')
-    const currentUrl =  `${siteUrl}${this.props.location.pathname}`
+    const currentUrl = `${siteUrl}${this.props.location.pathname}`
 
     return (
       <Layout location={this.props.location} heroImage={post.heroImage}>
@@ -26,7 +26,12 @@ class BlogPostTemplate extends React.Component {
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <div className={styles.meta}>
-              <span>by:&nbsp;</span><Link to={`/${post.author.slug}`}>{post.author.name}</Link>
+              {post.author && (
+                <>
+                  <span>by:&nbsp;</span>
+                  <Link to={`/${post.author.slug}`}>{post.author.name}</Link>
+                </>
+              )}
               <p
                 style={{
                   display: 'block',
@@ -40,12 +45,11 @@ class BlogPostTemplate extends React.Component {
                 __html: post.body.childMarkdownRemark.html,
               }}
             />
-            <Share
-              page_url={currentUrl}
-              title={post.title}
-            />
+            <Share page_url={currentUrl} title={post.title} />
             <br />
-            <Link className="button" to="/inspiration/blog">Back to Blog</Link>
+            <Link className="button" to="/inspiration/blog">
+              Back to Blog
+            </Link>
           </div>
         </div>
       </Layout>
