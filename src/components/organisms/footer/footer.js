@@ -43,10 +43,10 @@ export default () => (
           All Rights Reserved.
         </span>
         <span className={styles.copyright}>
-          <a href="tel:+1-615-517-8800">(615) 517-8800</a>
+          <a href="tel:+1-615-390-6801">(615) 390-6801</a>
         </span>
         <span className={styles.copyright}>
-          <a href="mailto:akowillhite@gmail.com">akowillhite@gmail.com</a>
+          <a href="mailto:Naomi.hughes@comcast.net">Naomi.hughes@comcast.net</a>
         </span>
       </p>
     </div>

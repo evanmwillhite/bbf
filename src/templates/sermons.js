@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import SEO from '../components/base/seo/seo'
 import SermonPreview from '../components/molecules/teasers/sermon'
 
-import Podcast from '../img/podcast.inline.svg';
+import Podcast from '../img/podcast.inline.svg'
 
 import styles from '../components/pages/blogs.module.css'
 
@@ -16,7 +16,10 @@ class SermonsIndex extends React.Component {
     const { currentPage, numSermonPages } = this.props.pageContext
     const isFirst = currentPage === 1
     const isLast = currentPage === numSermonPages
-    const prevPage = currentPage - 1 === 1 ? "/inspiration/sermons/" : `/inspiration/sermons/${(currentPage - 1).toString()}`
+    const prevPage =
+      currentPage - 1 === 1
+        ? '/inspiration/sermons/'
+        : `/inspiration/sermons/${(currentPage - 1).toString()}`
     const nextPage = `/inspiration/sermons/${(currentPage + 1).toString()}`
 
     return (
@@ -30,8 +33,9 @@ class SermonsIndex extends React.Component {
               href="https://www.youtube.com/channel/UCtTKQNSRCLyrKO6y9PliADQ"
               target="_blank"
               rel="noopener"
-            >Sermons on YouTube from Tim Rayborn, Pastor Emeritus</a>
-            <p className={styles.sermonsTop}>Below are a sampling of sermons. If you would like a recording of another sermon, contact <a href="mailto:akowillhite@gmail.com">Pastor Amanda</a>.</p>
+            >
+              Sermons on YouTube from Tim Rayborn, Pastor Emeritus
+            </a>
             <ul className="list-reset list-relative">
               {sermons.map(({ node }) => {
                 return (
